@@ -4,18 +4,25 @@ import { RECIPES } from './mock-recipes';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class RecipeService {
   getRecipes(): Observable<Recipe[]> {
     this.messageService.add('RecipeService: fetched recipes');
-    return of(RECIPES);
+    return this.http.get<Recipe[]>(this.recipesUrl);
   }
   getRecipe(id: number): Observable<Recipe> {
     // Todo: send the message _after_ fetching the hero
     this.messageService.add(`RecipeService: fetched recipe id=${id}`);
     return of(RECIPES.find(recipe => recipe.id === id));
   }
-  constructor(private messageService: MessageService) {}
+constructor(
+  private http: HttpClient,
+  private messageService: MessageService) { }
+  private log(message: string) {
+    this.messageService.add('RecipeService: ' + message);
+  }
+  private recipesUrl = 'http://localhost:3001/recipes';  // URL to web api
 
 }

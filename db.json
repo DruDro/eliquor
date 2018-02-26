@@ -1,0 +1,11 @@
+{
+	"users": [],
+	"recipes": [
+		{ "id": 11, "name": "Tequila Boom"
+		},
+		{ "id": 12, "name": "Cigar"
+		},
+		{ "id": 13, "name": "Whisky"
+		}
+	]
+}
