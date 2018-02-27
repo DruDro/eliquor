@@ -1,0 +1,26 @@
+// bootstrap styles are imported along with the whole angular-bootstrap-md module in the app.module.ts
+@import 'mixin';
+@import 'variables';
+
+* {
+    outline:0;
+    box-sizing:border-box;    
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: $main-bg;
+    color:$c-main;
+}
+
+app-root {
+    
+    height:100vh;
+    margin:0;
+    padding:0;
+    position:relative;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: space-between;
+    justify-content:space-between;
+}
