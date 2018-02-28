@@ -1,4 +1,33 @@
-.recipe {
-    &--top {
+@import '../../sass/variables';
+@import '../../sass/mixin';
+.top-recipes {
+    display:flex;
+    flex-flow: row wrap;
+    align-items:center;
+    justify-content:stretch;
+    overflow:hidden;
+    border-radius: 25px;
+    border:3px solid $bg-btn;
+    .top-recipe {
+        flex: 1 0 20%;
+        min-height:75px;
+        display:flex;
+        flex-flow:column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &__title {
+            margin:0;
+            font-size:1.4em;
+            line-height:1.2em;
+            color:white;
+            transition:all .15s ease-in-out;
+        }
+        &:hover {
+            background: $bg-btn;
+            .top-recipe__title {
+                color:$c-btn
+            }
+        }
     }
 }

@@ -1,11 +1,18 @@
 // Colors
-$main-bg: #333;
-$c-main: #fff;
-$c-link: #00c441;
-$c-hover-link: #ffff4d;
-$c-active-link: #ff8000;
-$c-visited-link: #00c451;
-
+$main-bg: #96ceb4;
+$bg-header: #88d8b0;
+$c-main: #333;
+$c-link: #ff6f69;
+$c-link-hover: darken(#ff6f69,5%);
+$c-link-active: darken(#ff6f69,10%);
+$c-link-visited: darken(#ff6f69,20%);
+$bg-btn: #ffeead;
+$bg-btn-hover: #ffcc5c;
+$bg-btn-active: darken(#ffcc5c,10%);
+$bg-btn-primary:#ce96b0;
+$c-btn: #333;
+$c-btn-primary: #ffeead;
+$c-headers: #000;
 
 // Typography
 $font-style: normal;
@@ -13,5 +20,6 @@ $font-variant: normal;
 $font-weight:normal;
 $font-size: 14px;
 $line-height:17px;
-$font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+$font-family: 'Montserrat', sans-serif;
+$font-family-h: 'Poppins', cursive;
 $font: $font-style $font-weight #{$font-size}/#{$line-height} $font-family;

@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getRecipes(): void {
     this.recipeService.getRecipes()
-      .subscribe(recipes => this.recipes = recipes.slice(0, 5));
+      .subscribe(recipes => this.recipes = recipes.filter(recipeItem => recipeItem.rating > 4).sort((a,b) => a.rating < b.rating).slice(0,5));
   }
 }

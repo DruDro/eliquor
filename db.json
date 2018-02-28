@@ -1,13 +1,104 @@
 {
-	"users": [],
+	"users": [
+		{
+			"id":1,
+			"login":"test",
+			"password":"testtest",  
+			"displayName": "Test User"
+		}
+	],
 	"recipes": [
-		{ "id": 11, "name": "Tequila Boom"
+		{
+			"id": 11,
+			"name": "Rittersport Mint",
+			"authorId": 1,
+			"rating": 5,
+			"flavours":[
+				{
+					"name":"Cream",
+					"proportion":"2%"
+				},
+				{
+					"name":"Chocolate",
+					"proportion":"8%"
+				},
+				{
+					"name":"Mint",
+					"proportion":"3%"
+				}
+			]
 		},
-		{ "id": 12, "name": "Cigar"
+		{
+			"id": 10,
+			"name": "Apple Juice",
+			"authorId": 1,
+			"rating": 4.2,
+			"flavours":[
+				{
+					"name":"Apple",
+					"proportion":"10%"
+				}
+			]
 		},
-		{ "id": 13, "name": "Whisky"
+		{
+			"id": 9,
+			"name": "Strawberry Yogurt",
+			"authorId": 1,
+			"rating": 4,
+			"flavours":[
+				{
+					"name":"Cream",
+					"proportion":"2%"
+				},
+				{
+					"name":"Strawberry",
+					"proportion":"10%"
+				},
+				{
+					"name":"Bavarian Cream",
+					"proportion":"2%"
+				}
+			]
 		},
-		{ "id": 14, "name": "Honey"
+		{
+			"id": 13,
+			"name": "Tequila boom",
+			"authorId": 1,
+			"rating": 4.5,
+			"flavours":[
+				{
+					"name":"Pomegranate",
+					"proportion":"5%"
+				},
+				{
+					"name":"Tequila",
+					"proportion":"5%"
+				},
+				{
+					"name":"Lemonade",
+					"proportion":"5%"
+				}
+			]
+		},
+		{
+			"id": 15,
+			"name": "Cherrylate",
+			"authorId": 1,
+			"rating": 5,
+			"flavours":[
+				{
+					"name":"Chocolate",
+					"proportion":"5%"
+				},
+				{
+					"name":"Cherry",
+					"proportion":"10%"
+				},
+				{
+					"name":"Cream",
+					"proportion":"2%"
+				}
+			]
 		}
 	]
 }

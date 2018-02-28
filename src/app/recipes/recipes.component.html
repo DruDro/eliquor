@@ -1,8 +1,8 @@
-<h2>Recipes</h2>
-<ul class="recipes">
-  <li *ngFor="let recipe of recipes">
-    <a routerLink="/detail/{{recipe.id}}">
-      <span class="badge">{{recipe.id}}</span> {{recipe.name}}
+<h1>All Recipes</h1>
+<ul class="recipes-list">
+  <li *ngFor="let recipe of recipes" class="recipe">
+    <a routerLink="/detail/{{recipe.id}}" class="btn">
+      <h4 class="recipe-name">{{recipe.name}}</h4>
     </a>
   </li>
 </ul>
