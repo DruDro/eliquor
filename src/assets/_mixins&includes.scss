@@ -1,3 +1,6 @@
+//----------------------------------------------------//
+// Mixins & Includes                                  //
+//----------------------------------------------------//
 @mixin notext {
 	overflow: hidden;
 	text-indent: -9999px;
@@ -116,7 +119,7 @@
 
  @mixin b($point) {
 	@if $point == desktop {
-		@media (max-width: 1199px) { @content ; }
+		@media (max-width: 1300px) { @content ; }
 	}
 	@else if $point == tablet {
 		@media (max-width: 1023px) { @content ; }

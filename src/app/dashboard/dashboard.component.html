@@ -1,6 +1,6 @@
-<h1>Top Recipes</h1>
+<h1 class="page-title center-text">Top Recipes</h1>
 <div class="top-recipes">  
-    <a *ngFor="let recipe of recipes" routerLink="/detail/{{recipe.id}}" class="btn btn--primary top-recipe">
-        <h2 class="top-recipe__title">{{recipe.name}}</h2>
+    <a *ngFor="let recipe of recipes" routerLink="/detail/{{recipe.id}}" class="btn--inverse top-recipe">
+        {{recipe.name}}
     </a>
 </div>

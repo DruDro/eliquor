@@ -1,8 +1,12 @@
-<h1>All Recipes</h1>
-<ul class="recipes-list">
-  <li *ngFor="let recipe of recipes" class="recipe">
-    <a routerLink="/detail/{{recipe.id}}" class="btn">
-      <h4 class="recipe-name">{{recipe.name}}</h4>
+<h1 class="center-text page-title">All Recipes</h1>
+<ol class="recipes-list">
+  <li class="recipes-list__header">
+      <div style="padding: 8px 15px">
+        Recipe name
+      </div></li>
+  <li *ngFor="let recipe of recipes" class="recipe" value="{{recipe.id}}">
+    <a routerLink="/detail/{{recipe.id}}" class="btn--inverse">
+      {{recipe.name}}
     </a>
   </li>
-</ul>
+</ol>

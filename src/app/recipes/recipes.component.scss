@@ -2,26 +2,37 @@
 @import '../../sass/mixin';
 
 .recipes-list {
-    list-style:none;
     margin:0;
     padding:0;
-    border:3px solid $bg-btn-hover;
-    overflow:hidden;
-    border-radius: 25px;
     background: $bg-btn;
+    padding-left:20px;
+    &__header {
+        list-style:none;
+        position:relative;
+        &:before {
+            content:"id";
+            position:absolute;
+            top:8px;
+            right:calc(100% + 5px);
+        }
+    }
     .recipe {
         margin:0;
         padding:0;
-        .btn {
+        &-name {
+            margin:0;
+            padding:0;
+        }
+        [class*="btn"] {
             display:flex;
             flex-flow: row nowrap;
             align-items: center;
             justify-content: space-between;
             padding:8px 15px;
+            border-bottom:0;
         }
-        &-name {
-            margin:0;
-            padding:0;
+        &:last-child {
+            border-bottom: $border-btn-inverse;
         }
     }
 }
