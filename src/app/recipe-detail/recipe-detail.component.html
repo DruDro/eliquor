@@ -1,5 +1,5 @@
 <div *ngIf="recipe" class="recipe-detail center">
-  <h1 class="recipe-detail__title center-text">{{ recipe.name }}</h1>
+  <h1 class="page-title center-text">{{ recipe.name }}</h1>
     <ul *ngIf="recipe.flavours" class="flavours">
       <li *ngFor="let flavour of recipe.flavours" class="flavour">{{flavour.name}}: {{flavour.proportion}}</li>
     </ul>
