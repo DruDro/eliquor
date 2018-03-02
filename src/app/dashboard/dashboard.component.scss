@@ -20,6 +20,7 @@
             }
             @include b(mobile){
                 min-width:100%;
+                min-height:30px; 
             }
     }
 }
