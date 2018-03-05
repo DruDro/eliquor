@@ -9,7 +9,7 @@
     </div>
   </li>
   <li *ngFor="let recipe of recipes" class="recipe" value="{{recipe.id}}">
-    <a routerLink="/detail/{{recipe.id}}" class="btn--inverse">
+    <a routerLink="/detail/{{recipe.id}}" class="btn">
       {{recipe.name}}
     </a>
     <button class="btn--delete" title="delete recipe" (click)="delete(recipe)">x</button>
