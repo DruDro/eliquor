@@ -133,6 +133,15 @@ input[type="submit"],
     }
 }
 
+.btn--delete{
+    color:red;
+    background:transparent;
+    border:0;
+    &:hover {
+        color:orange;
+    }
+}
+
 .center-text {
     text-align:center;
 }
@@ -142,4 +151,29 @@ input[type="submit"],
     justify-self:center;
     margin-right:auto;
     margin-left:auto;
+}
+
+.input {
+    display:block;
+    width:100%;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    border:$border-btn;
+    outline:0;
+    box-shadow:none;
+    background:$bg-btn;//$bg-btn;
+    color:$c-btn;
+    text-decoration:none;
+    display:block;
+    padding: 0 12px;
+    min-height:36px;
+    transition:all .15s ease-in-out;
+    font:$font;
+    margin:0;
+    @include placeholderColor(#eee);
+    &:focus {
+        background:#fff;
+        color:#000;
+        @include placeholderColor(#777 !important);
+    }
 }

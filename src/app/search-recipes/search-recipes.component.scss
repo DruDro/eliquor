@@ -1,11 +1,17 @@
 @import '../../sass/variables';
 @import '../../sass/mixin';
 
-.recipes-list {
+#search-component {
+    margin: 0 auto 75px;
+}
+#search-box {
+    margin: 0 auto 0;
+}
+.search-result {
     margin:0;
     padding:0;
     background: $bg-btn;
-    padding-left:20px;
+    list-style:none;
     &__header {
         list-style:none;
         position:relative;
@@ -19,7 +25,6 @@
     .recipe {
         margin:0;
         padding:0;
-        position:relative;
         &-name {
             margin:0;
             padding:0;
@@ -34,12 +39,6 @@
         }
         &:last-child {
             border-bottom: $border-btn-inverse;
-        }
-        .btn--delete {
-            position:absolute;
-            top:0;
-            right:0;
-            height:100%;
         }
     }
 }
