@@ -1,5 +1,12 @@
 // Colors
-$main-bg: linear-gradient(to top left, rgba(#eeff00,.35), rgba(#00fff2, .35)), rgba(#000,.7);
+$main-bg: linear-gradient(to bottom right, 
+		rgba(#ff9d00,.15), 
+		rgba(#EEFF00,.15), 
+		rgba(#E73C7E,.15), 
+		rgba(#00FFF2,.15), 
+		rgba(#73ff00,.15)
+	), 
+	rgba(#000,.7);
 $c-primary: #4e9168;
 $bg-header: rgba(#000,.3);
 $c-main: #fff;

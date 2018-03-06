@@ -20,15 +20,14 @@ app-root, .app {
     justify-content: space-between;
 }
 body {
-    background-color: $main-bg;
     color: $c-main;
     margin:0;
     padding:0;
     font: $font;
     height:100vh;
     background:url(https://drberanimbovaping.files.wordpress.com/2015/09/smoke-background-wallpaper.jpg?w=917&h=796) top no-repeat;
-    background-attachment:fixed;
     background-size: cover;
+    background-attachment:fixed;
     min-width:320px;
     &:before {
         content:"";
@@ -37,8 +36,21 @@ body {
         left:0;
         width:100%;
         height:100%;
-        background:$main-bg;
+        background: $main-bg;
+        background-size: 400% 400%;
+        animation: Gradient 60s linear infinite;
     }
+}
+@keyframes Gradient {
+	0% {
+		background-position: 0% 0%
+	}
+	50% {
+		background-position: 100% 100%
+	}
+	100% {
+		background-position: 0% 0%
+	}
 }
 .container {
     width:100%;
