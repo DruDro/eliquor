@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../Recipe';
 import { RecipeService } from '../recipe.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-recipes',
@@ -10,14 +11,15 @@ import { RecipeService } from '../recipe.service';
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, public auth: AuthService) { }
 
   getRecipes(): void {
     this.recipeService.getRecipes().subscribe(recipes => this.recipes = recipes);
   }
-  add(id: string, recipeName: string): void {
-    const form = document.getElementById(id);
-    const recipe = {name: recipeName, flavours: []};
+  add(form, recipeName: string): void {
+    const authorId = this.auth.user[0].id;
+    console.log(authorId);
+    const recipe = {name: recipeName, authorId, flavours: []};
     const flavours = document.getElementsByClassName("flavourName");
     const flavourProportions = document.getElementsByClassName("flavourProportions");
     for(let i = 0; i < flavours.length; i++){

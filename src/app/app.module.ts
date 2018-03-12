@@ -9,6 +9,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeService } from './recipe.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { AuthService } from './auth.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
@@ -33,7 +34,8 @@ import { SearchRecipesComponent } from './search-recipes/search-recipes.componen
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     RecipeService,
-    MessageService
+    MessageService,
+    AuthService
   ],
   bootstrap: [AppComponent],
 })

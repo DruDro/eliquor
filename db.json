@@ -99,6 +99,17 @@
           "proportion": "2%"
         }
       ]
+    },
+    {
+      "name": "test",
+      "authorId": 1,
+      "flavours": [
+        {
+          "name": "",
+          "proportion": ""
+        }
+      ],
+      "id": 16
     }
   ]
 }

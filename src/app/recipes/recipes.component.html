@@ -15,7 +15,7 @@
     <button class="btn--delete" title="delete recipe" (click)="delete(recipe)">x</button>
   </li>
 </ol>
-<form class="add-recipe-form" id="addRecipe">
+<form *ngIf="auth.isAuthenticated"  class="add-recipe-form" #addRecipe>
   <h2 class="center-text">Add recipe</h2>
   <label>Recipe name:
     <input #recipeName />
@@ -34,7 +34,7 @@
     </div>
   </div>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add('addRecipe', recipeName.value);">
+  <button (click)="add(addRecipe, recipeName.value);">
     add
   </button>
 </form>

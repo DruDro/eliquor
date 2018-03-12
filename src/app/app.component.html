@@ -9,9 +9,23 @@
             <li class="nav-item" >
                 <a class="btn--primary" routerLink="/recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;Recipes</a>
             </li>
+            <li class="nav-item" >
+                <a class="btn--primary" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;My Recipes</a>
+            </li>
         </ul>
-        
-        <a class="btn--primary" routerLink="/login"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Login</a>
+            <button
+              class="btn--primary btn-margin"
+              *ngIf="!auth.isAuthenticated"
+              routerLink="/login">
+              <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Log In
+            </button>
+      
+            <button
+              class="btn--primary btn-margin"
+              *ngIf="auth.isAuthenticated"
+              (click)="auth.logout()">
+              <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log Out
+            </button>
     </nav>
 </header>
 <!--Main Navigation-->
