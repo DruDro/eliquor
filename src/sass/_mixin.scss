@@ -7,6 +7,13 @@
 	content: "";
 	clear: both;
 }
+@mixin clearfix {
+	&:after {
+		content: "";
+		clear: both;
+	}
+}
+
 
 .centered	{ 
 	display: table;

@@ -1,6 +1,7 @@
 <app-search-recipes></app-search-recipes>
 
-<h1 class="center-text page-title">All Recipes</h1>
+<h1 *ngIf="loc=='/recipes'" class="center-text page-title">All Recipes</h1>
+<h1 *ngIf="loc=='/my-recipes'" class="center-text page-title">My Recipes</h1>
 
 <ol class="recipes-list">
   <li class="recipes-list__header">
@@ -10,12 +11,12 @@
   </li>
   <li *ngFor="let recipe of recipes" class="recipe" value="{{recipe.id}}">
     <a routerLink="/detail/{{recipe.id}}" class="btn">
-      {{recipe.name}}
+      {{recipe.name}} {{recipe.rating}}
     </a>
-    <button class="btn--delete" title="delete recipe" (click)="delete(recipe)">x</button>
+    <button *ngIf="recipe.authorId == auth.user[0].id" class="btn--delete" title="delete recipe" (click)="delete(recipe)">x</button>
   </li>
 </ol>
-<form *ngIf="auth.isAuthenticated"  class="add-recipe-form" #addRecipe>
+<form *ngIf="auth.isAuthenticated && loc == '/my-recipes'"  class="add-recipe-form" #addRecipe>
   <h2 class="center-text">Add recipe</h2>
   <label>Recipe name:
     <input #recipeName />

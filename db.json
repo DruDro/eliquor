@@ -11,7 +11,7 @@
     {
       "id": 11,
       "name": "Rittersport Mint",
-      "authorId": 1,
+      "authorId": 2,
       "rating": 5,
       "flavours": [
         {
@@ -31,7 +31,7 @@
     {
       "id": 10,
       "name": "Apple Juice",
-      "authorId": 1,
+      "authorId": 2,
       "rating": 4.2,
       "flavours": [
         {
@@ -43,7 +43,7 @@
     {
       "id": 9,
       "name": "Strawberry Yogurt",
-      "authorId": 1,
+      "authorId": 2,
       "rating": 4,
       "flavours": [
         {
@@ -83,7 +83,7 @@
     {
       "id": 15,
       "name": "Cherrylate",
-      "authorId": 1,
+      "authorId": 2,
       "rating": 5,
       "flavours": [
         {
@@ -99,17 +99,6 @@
           "proportion": "2%"
         }
       ]
-    },
-    {
-      "name": "test",
-      "authorId": 1,
-      "flavours": [
-        {
-          "name": "",
-          "proportion": ""
-        }
-      ],
-      "id": 16
     }
   ]
 }

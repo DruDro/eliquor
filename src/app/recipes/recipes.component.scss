@@ -19,6 +19,7 @@
         margin:0;
         padding:0;
         background: rgba(#000,.3);
+        position:relative;
         &-name {
             margin:0;
             padding:0;
@@ -31,8 +32,29 @@
             padding:8px 15px;
             border-bottom:0;
         }
+        .btn--delete {
+            position:absolute;
+            right:0;
+            border-width:1px;
+            z-index:1;
+            height:100%;
+            color:red;
+            top:0;
+        }
         &:last-child {
             border-bottom: $border-btn-inverse;
+        }
+    }
+}
+
+:host ::ng-deep .add-recipe-form {
+    .flavour-row {
+        @include clearfix;
+        background:black;
+        label {
+            display:block;
+            width:50%;
+            float:left;
         }
     }
 }

@@ -18,20 +18,18 @@ export class AuthService {
   login(login: string, password: string): void {
     this.getUser(login, password)
       .subscribe(userResponse => {
-        if (userResponse.length) {
-          this.isAuthenticated = true;
-          localStorage.setItem("isAuthenticated", 'true');
-          localStorage.setItem("user", JSON.stringify(userResponse));
-          this.user = userResponse;
-          this.router.navigate(['/']);
-        } else {
-          this.isAuthenticated = false; 
-          this.user = {};
-          localStorage.setItem("isAuthenticated", 'false');
-          localStorage.setItem("user", '');
-          alert('incorrect email or password');
-          this.router.navigate(['/login']);
-        }
+          if (userResponse.length) {
+            this.isAuthenticated = true;
+            localStorage.setItem("isAuthenticated", 'true');
+            localStorage.setItem("user", JSON.stringify(userResponse));
+            this.user = userResponse;
+            this.router.navigate(['/']);
+          } else {
+            this.isAuthenticated = false; 
+            this.user = {};
+            localStorage.setItem("isAuthenticated", 'false');
+            localStorage.setItem("user", '');
+          }
       });
   }
   logout(): void {

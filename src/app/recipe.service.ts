@@ -5,9 +5,12 @@ import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 @Injectable()
 export class RecipeService {
   getRecipes(): Observable<Recipe[]> {
@@ -16,6 +19,14 @@ export class RecipeService {
       .pipe(
         tap(recipes => this.log(`fetched recipes`)),
         catchError(this.handleError('getRecipes', []))
+      );
+  }
+  getMyRecipes(): Observable<Recipe[]> {
+    this.messageService.add('RecipeService: fetched user recipes');
+    return this.http.get<Recipe[]>(this.myRecipesUrl)
+      .pipe(
+        tap(recipes => this.log(`fetched recipes`)),
+        catchError(this.handleError('getMyRecipes', []))
       );
   }
   getTopRecipes(): Observable<Recipe[]> {
@@ -79,11 +90,14 @@ export class RecipeService {
   }
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
-    private log(message: string) {
+    private messageService: MessageService,
+    public auth: AuthService
+  ) { }
+  private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
   private recipesUrl = 'http://localhost:3001/recipes';  // URL to web api
+  private myRecipesUrl = `http://localhost:3001/recipes?authorId=${this.auth.user[0].id}`;  // URL to web api
   private topRecipesUrl = 'http://localhost:3001/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
 
 }
