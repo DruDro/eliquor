@@ -18,7 +18,7 @@ $c-btn: #fff;
 $c-btn-hover:darken(#000,50%);
 $c-btn-active:darken(#000,50%);
 $bg-btn: transparent;
-$bg-btn-hover: #fff;
+$bg-btn-hover: rgba(#fff,.8);
 $bg-btn-active: rgba(#fff,.5);
 $c-btn-primary: #000;
 $c-btn-primary-hover: #000;
@@ -26,9 +26,9 @@ $c-btn-primary-active: #000;
 $bg-btn-primary:rgba(#fff,.8);
 $bg-btn-primary-hover:#fff;
 $bg-btn-primary-active:rgba(#fff,.7);
-$border-btn: 1px solid #fff; 
-$border-btn-primary: 1px solid #000; 
-$border-btn-inverse: 1px solid #fff; 
+$border-btn: 0;/*1px solid #fff */ 
+$border-btn-primary: 0;/*1px solid #000 */ 
+$border-btn-inverse: 0;/*1px solid #fff */ 
 $c-headers: $c-main;
 
 // Typography

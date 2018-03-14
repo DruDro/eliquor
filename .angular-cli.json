@@ -23,7 +23,8 @@
         "sass/styles.scss"
       ],
       "scripts": [
-        "assets/fa-all.js"
+        "assets/fa-all.js",
+        "../node_modules/jquery/dist/jquery.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -132,7 +132,7 @@ input[type="submit"],
 
 .btn--inverse {
     @extend .btn;
-    background: $bg-btn-hover;
+    background: $bg-btn-primary-hover;
     color:$c-btn-hover;
     border:$border-btn;
     &:hover {
@@ -162,12 +162,13 @@ input {
     margin:0;
     padding: 0 15px;
     border:1px solid #fff;
-    color: #000;
+    color: #fff;
     min-height: 2.5em;
     background:transparent;
     transition: all .15s ease-in-out;
-    @include placeholderColor(#fff);
+    @include placeholderColor(#eee);
     &:focus {
+        color:#000;
         background: #fff;
         @include placeholderColor(rgba($c-primary,.7)!important);
     }

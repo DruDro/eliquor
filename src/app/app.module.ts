@@ -37,6 +37,6 @@ import { SearchRecipesComponent } from './search-recipes/search-recipes.componen
     MessageService,
     AuthService
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

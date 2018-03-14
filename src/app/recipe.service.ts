@@ -63,16 +63,15 @@ export class RecipeService {
       catchError(this.handleError<any>('updateRecipe'))
     );
   }
-  addRecipe (recipe: Recipe): Observable<Recipe> {
+  addRecipe(recipe: Recipe): Observable<Recipe> {
     return this.http.post<Recipe>(this.recipesUrl, recipe, httpOptions).pipe(
       tap((recipe: Recipe) => this.log(`added hero w/ id=${recipe.id}`)),
       catchError(this.handleError<Recipe>('addRecipe'))
     );
   }
-  deleteRecipe (recipe: Recipe | number): Observable<Recipe> {
+  deleteRecipe(recipe: Recipe | number): Observable<Recipe> {
     const id = typeof recipe === 'number' ? recipe : recipe.id;
     const url = `${this.recipesUrl}/${id}`;
-  
     return this.http.delete<Recipe>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted recipe id=${id}`)),
       catchError(this.handleError<Recipe>('deleteRecipe'))
@@ -97,7 +96,7 @@ export class RecipeService {
     this.messageService.add('RecipeService: ' + message);
   }
   private recipesUrl = 'http://localhost:3001/recipes';  // URL to web api
-  private myRecipesUrl = `http://localhost:3001/recipes?authorId=${this.auth.user[0].id}`;  // URL to web api
+  private myRecipesUrl = this.auth.user.length ? `http://localhost:3001/recipes?authorId=${this.auth.user[0].id}` : '';  // URL to web api
   private topRecipesUrl = 'http://localhost:3001/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
 
 }

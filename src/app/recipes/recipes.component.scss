@@ -4,15 +4,20 @@
 .recipes-list {
     margin:0;
     padding:0;
-    padding-left:20px;
+    padding-left:35px;
+    counter-reset: recipe;
+    list-style:none;
     &__header {
         list-style:none;
         position:relative;
+        font-family:$font-family-h;
         &:before {
             content:"id";
             position:absolute;
-            top:8px;
-            right:calc(100% + 5px);
+            top:50%;
+            transform:translateY(-50%);
+            right:calc(100% + 15px);
+            font-family:$font-family-h;
         }
     }
     .recipe {
@@ -20,17 +25,29 @@
         padding:0;
         background: rgba(#000,.3);
         position:relative;
+        
+        &:before {
+            counter-increment:recipe;
+            content:attr(value);
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            right:calc(100% + 15px);
+        }
         &-name {
             margin:0;
             padding:0;
         }
         [class*="btn"] {
             display:flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: space-between;
+            flex-flow: column nowrap;
+            align-items: flex-start;
             padding:8px 15px;
             border-bottom:0;
+            font-size:1.2rem;
+        }
+        &-rating {
+            font-size:.7rem;
         }
         .btn--delete {
             position:absolute;
@@ -38,8 +55,19 @@
             border-width:1px;
             z-index:1;
             height:100%;
-            color:red;
+            padding:0;
+            width:50px;
+            display:flex;
+            flex-flow: row nowrap;
+            align-items:center;
+            justify-content: center;
+            color:#9c2929;
             top:0;
+            border:0;
+            &:hover {
+                background: transparent;
+                color:#fff;
+            }
         }
         &:last-child {
             border-bottom: $border-btn-inverse;
@@ -48,13 +76,39 @@
 }
 
 :host ::ng-deep .add-recipe-form {
+    background:rgba(#000, .3);
+    padding: 15px;
+    margin: 15px 0;
+    h3 {
+        margin:15px 0 10px;
+        display:flex;
+        align-items:center;
+    }
+    .add-flavour {
+        color:$c-primary;
+        border:0;
+        padding:0;
+        font-size:2rem;
+        line-height:2rem;
+        margin: 0 0 0 15px;
+        &:hover, &:active {
+            background: transparent;
+            color:#fff;
+        }
+    }
+    .flavours {
+        border:0;
+        outline:0;
+        margin: 15px 0;
+    }
     .flavour-row {
-        @include clearfix;
-        background:black;
+        display:flex;
+        flex-flow:row nowrap;
+        align-items:center;
+        margin: 0 0 10px;
         label {
             display:block;
-            width:50%;
-            float:left;
+            flex: 1 1 50%;
         }
     }
 }

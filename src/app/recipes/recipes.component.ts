@@ -3,6 +3,7 @@ import { Recipe } from '../Recipe';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-recipes',
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
-
   private loc: string;
   constructor(
     private recipeService: RecipeService,
-    public auth: AuthService
-  ) { 
+    public auth: AuthService,
+    private router: Router
+  ) {
   }
 
   getRecipes(): void {
@@ -41,20 +42,43 @@ export class RecipesComponent implements OnInit {
     form.reset();
   }
   delete(recipe: Recipe): void {
-    this.recipes = this.recipes.filter(h => h !== recipe);
-    this.recipeService.deleteRecipe(recipe).subscribe();
+    if (confirm(`Delete recipe ${recipe.name}?`)) {
+      this.recipes = this.recipes.filter(h => h !== recipe);
+      this.recipeService.deleteRecipe(recipe).subscribe();
+    }
   }
   checkLocation(): void {
-    if(this.loc == "/my-recipes") {      
+    if (this.loc == "/my-recipes") {
       this.getMyRecipes();
     }
-    else if(this.loc == "/recipes") {
+    else if (this.loc == "/recipes") {
       this.getRecipes();
     }
   }
   ngOnInit() {
     this.loc = location.pathname;
     this.checkLocation();
+  }
+  ngAfterViewInit() {
+    const drawRating = () => {
+      $('.recipe-rating').each(function () {
+        const starsContainer = this;
+        const rating = starsContainer.dataset.rating.toString().split('.');
+        const fullStars = parseInt(rating[0]);
+        const halfStar = rating[1] ? parseInt(rating[1]) : 0;
+        for (let i = 0; i < fullStars; i++) {
+          $(starsContainer).append('<i class="fas fa-star"></i>')
+        }
+        if (halfStar) {
+          $(starsContainer).append('<i class="fas fa-star-half"></i>')
+        }
+      });
+    }
+    if ($('.recipe-rating').length == 0){
+      setTimeout(() => drawRating(), 800);
+    } else {
+      drawRating();
+    }
   }
   addFlavour() {
     const flavoursBox = document.querySelector('.add-recipe-form .flavours');
