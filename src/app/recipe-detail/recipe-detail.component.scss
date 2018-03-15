@@ -1,9 +1,14 @@
 @import '../../sass/variables';
 @import '../../sass/mixin';
 
-.recipe-detail {
+:host ::ng-deep .recipe-detail {
     
     .recipe-rating {
-        font-size:.7rem;
+        font-size:1rem;
+        text-align:center;
+        [class*="fa"]{
+            margin: 0 .2em;
+            display:inline-block;
+        }
     }
 }

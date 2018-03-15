@@ -4,24 +4,24 @@
         <a class="logo" routerLink="/"><i class="fas fa-eye-dropper"></i>&nbsp;{{title}}</a>
         <ul>
             <li class="nav-item" >
-                <a class="btn--primary" routerLink="/dashboard"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                <a class="btn" routerLink="/dashboard"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
             </li>
             <li class="nav-item" >
-                <a class="btn--primary" routerLink="/recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;Recipes</a>
+                <a class="btn" routerLink="/recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;Recipes</a>
             </li>
             <li class="nav-item" >
-                <a class="btn--primary" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;My Recipes</a>
+                <a class="btn" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-book"></i>&nbsp;&nbsp;My Recipes</a>
             </li>
         </ul>
             <button
-              class="btn--primary btn-margin"
+              class="btn btn-margin"
               *ngIf="!auth.isAuthenticated"
               routerLink="/login">
               <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Log In
             </button>
       
             <button
-              class="btn--primary btn-margin"
+              class="btn btn-margin"
               *ngIf="auth.isAuthenticated"
               (click)="auth.logout()">
               <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log Out

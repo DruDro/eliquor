@@ -13,27 +13,27 @@
     <a routerLink="/detail/{{recipe.id}}" class="btn">
       <span class="recipe-rating" attr.data-rating="{{recipe.rating}}"></span> {{recipe.name}} 
     </a>
-    <button *ngIf="auth.isAuthenticated && recipe.authorId == auth.user[0].id" class="btn--delete" title="delete recipe" (click)="delete(recipe)"><i class="fas fa-trash"></i></button>
+    <button *ngIf="auth.isAuthenticated && recipe.authorId == auth.user[0].id" class="btn--delete  btn--transparent" title="delete recipe" (click)="delete(recipe)"><i class="fas fa-trash"></i></button>
   </li>
 </ol>
 <form *ngIf="auth.isAuthenticated && loc == '/my-recipes'"  class="add-recipe-form" #addRecipe>
   <h2 class="center-text">Add recipe</h2>
-  <label>Recipe name:
-    <input #recipeName />
+  <label class="input-box">
+    <input #recipeName /><span class="label-text">Recipe name</span>
   </label>
-    <h3>Flavours: <button (click)="addFlavour()" class="add-flavour"><i class="fas fa-plus-circle"></i></button></h3>
+    <h3>Flavours: <button (click)="addFlavour()" class="add-flavour btn--transparent"><i class="fas fa-plus-circle"></i></button></h3>
     <fieldset class="flavours">
     <div class="flavour-row">
-      <label>Name:
-        <input class="flavourName" />
+      <label class="input-box">
+        <input class="flavourName" /><span class="label-text">Name</span>
       </label>
-      <label>Proportions:
-        <input class="flavourProportions" />
+      <label class="input-box">
+        <input class="flavourProportions" /><span class="label-text">Proportions</span>
       </label>
     </div>
   </fieldset>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(addRecipe, recipeName.value);">
+  <button (click)="add(addRecipe, recipeName.value);" class=" btn">
       <i class="fas fa-plus"></i> Add recipe
   </button>
 </form>

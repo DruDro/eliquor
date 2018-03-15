@@ -1,7 +1,7 @@
 @import '../../sass/variables';
 @import '../../sass/mixin';
 
-.recipes-list {
+:host ::ng-deep .recipes-list {
     margin:0;
     padding:0;
     padding-left:35px;
@@ -48,6 +48,10 @@
         }
         &-rating {
             font-size:.7rem;
+            [class*="fa"]{
+                margin: 0 .2em;
+                display:inline-block;
+            }
         }
         .btn--delete {
             position:absolute;

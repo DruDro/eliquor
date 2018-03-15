@@ -1,34 +1,27 @@
 // Colors
-$main-bg: linear-gradient(to bottom right, 
-		rgba(#ff9d00,.15), 
-		rgba(#EEFF00,.15), 
-		rgba(#E73C7E,.15), 
-		rgba(#00FFF2,.15), 
-		rgba(#73ff00,.15)
-	), 
-	rgba(#000,.7);
+$main-bg: #454545;
 $c-primary: #4e9168;
-$bg-header: rgba(#000,.3);
-$c-main: #fff;
+$bg-header: #252525;
+$c-main: #eee;
 $c-link: #eef;
-$c-link-hover: #fff;
-$c-link-active: #fff;
+$c-link-hover: #eee;
+$c-link-active: #eee;
 $c-link-visited: #eee;
-$c-btn: #fff;
-$c-btn-hover:darken(#000,50%);
-$c-btn-active:darken(#000,50%);
-$bg-btn: transparent;
-$bg-btn-hover: rgba(#fff,.8);
-$bg-btn-active: rgba(#fff,.5);
+$c-btn: #eee;
+$c-btn-hover:darken(#252525,50%);
+$c-btn-active:darken(#252525,50%);
+$bg-btn: #252525;
+$bg-btn-hover: rgba(#eee,.8);
+$bg-btn-active: rgba(#eee,.5);
 $c-btn-primary: #000;
-$c-btn-primary-hover: #000;
-$c-btn-primary-active: #000;
-$bg-btn-primary:rgba(#fff,.8);
-$bg-btn-primary-hover:#fff;
-$bg-btn-primary-active:rgba(#fff,.7);
-$border-btn: 0;/*1px solid #fff */ 
-$border-btn-primary: 0;/*1px solid #000 */ 
-$border-btn-inverse: 0;/*1px solid #fff */ 
+$c-btn-primary-hover: #252525;
+$c-btn-primary-active: #252525;
+$bg-btn-primary:rgba(#eee,.8);
+$bg-btn-primary-hover:#eee;
+$bg-btn-primary-active:rgba(#eee,.7);
+$border-btn: 0;/*1px solid #eee */ 
+$border-btn-primary: 0;/*1px solid #252525 */ 
+$border-btn-inverse: 0;/*1px solid #eee */ 
 $c-headers: $c-main;
 
 // Typography

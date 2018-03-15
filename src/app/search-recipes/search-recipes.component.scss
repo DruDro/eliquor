@@ -3,6 +3,7 @@
 
 #search-component {
     margin: 0 auto 75px;
+    position:relative;
 }
 #search-box {
     margin: 0 auto 0;
@@ -12,6 +13,10 @@
     padding:0;
     background: $bg-btn;
     list-style:none;
+    position:absolute;
+    width:100%;
+    z-index:2;
+    box-shadow: 0 2px 5px 0 rgba(#000, .3);
     &__header {
         list-style:none;
         position:relative;
