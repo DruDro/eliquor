@@ -69,7 +69,14 @@ export class RecipesComponent implements OnInit {
         this.recipes.push(recipe);
         setTimeout(() => { this.drawRating() });
       });
+
     form.reset();
+    const flavoursBox = document.querySelector('.add-recipe-form .flavours');
+    const flavourRow = document.createElement("div");
+    flavourRow.className = "flavour-row";
+    flavourRow.innerHTML = "<label>Name: <input class='flavourName' /> </label><label>Proportions: <input class='flavourProportions'  /></label>";
+    flavoursBox.innerHTML = '';
+    flavoursBox.appendChild(flavourRow);
   }
   delete(recipe: Recipe): void {
     if (confirm(`Delete recipe ${recipe.name}?`)) {
