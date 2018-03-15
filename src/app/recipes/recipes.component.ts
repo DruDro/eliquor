@@ -18,13 +18,42 @@ export class RecipesComponent implements OnInit {
     public auth: AuthService,
     private router: Router
   ) {
+
   }
 
+  drawRating(): void {
+    $('.recipe-rating').each(function () {
+      const starsContainer = this;
+      const rating = starsContainer.dataset.rating.toString().split('.');
+      const fullStars = rating[0] ? parseInt(rating[0]) : 0;
+      const halfStar = rating[1] ? parseInt(rating[1]) : 0;
+      $(starsContainer).html('');
+      for (let i = 0; i < fullStars; i++) {
+        $(starsContainer).append('<i class="fas fa-star"></i>')
+      }
+      if (halfStar) {
+        $(starsContainer).append('<i class="fas fa-star-half"></i>')
+      }
+      if (!fullStars && !halfStar) {
+        for (let i = 0; i < 5; i++) {
+          $(starsContainer).append('<i class="far fa-star" style="color:#ffffff5f"></i>')
+        }
+      }
+    });
+  }
+
+
   getRecipes(): void {
-    this.recipeService.getRecipes().subscribe(recipes => this.recipes = recipes);
+    this.recipeService.getRecipes().subscribe(recipes => {
+      this.recipes = recipes;
+      setTimeout(() => this.drawRating());
+    });
   }
   getMyRecipes(): void {
-    this.recipeService.getMyRecipes().subscribe(recipes => this.recipes = recipes);
+    this.recipeService.getMyRecipes().subscribe(recipes => {
+      this.recipes = recipes;
+      setTimeout(() => this.drawRating());
+    });
   }
   add(form, recipeName: string): void {
     const authorId = this.auth.user[0].id;
@@ -38,6 +67,7 @@ export class RecipesComponent implements OnInit {
     this.recipeService.addRecipe(recipe as Recipe)
       .subscribe(recipe => {
         this.recipes.push(recipe);
+        setTimeout(() => { this.drawRating() });
       });
     form.reset();
   }
@@ -58,27 +88,6 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
     this.loc = location.pathname;
     this.checkLocation();
-  }
-  ngAfterViewInit() {
-    const drawRating = () => {
-      $('.recipe-rating').each(function () {
-        const starsContainer = this;
-        const rating = starsContainer.dataset.rating.toString().split('.');
-        const fullStars = parseInt(rating[0]);
-        const halfStar = rating[1] ? parseInt(rating[1]) : 0;
-        for (let i = 0; i < fullStars; i++) {
-          $(starsContainer).append('<i class="fas fa-star"></i>')
-        }
-        if (halfStar) {
-          $(starsContainer).append('<i class="fas fa-star-half"></i>')
-        }
-      });
-    }
-    if ($('.recipe-rating').length == 0){
-      setTimeout(() => drawRating(), 800);
-    } else {
-      drawRating();
-    }
   }
   addFlavour() {
     const flavoursBox = document.querySelector('.add-recipe-form .flavours');

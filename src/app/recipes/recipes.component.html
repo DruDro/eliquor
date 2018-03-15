@@ -2,8 +2,8 @@
 
 <h1 *ngIf="loc=='/recipes'" class="center-text page-title">All Recipes</h1>
 <h1 *ngIf="loc=='/my-recipes'" class="center-text page-title">My Recipes</h1>
-
-<ol class="recipes-list">
+<ng-template #norecipes>You have added no recipes yet. Use the below form to add a new recipe.</ng-template>
+<ol class="recipes-list" *ngIf="recipes?.length; else norecipes">
   <li class="recipes-list__header">
     <div style="padding: 8px 15px">
       Recipe name

@@ -1,5 +1,6 @@
 <div *ngIf="recipe" class="recipe-detail center">
   <h1 class="page-title center-text">{{ recipe.name }}</h1>
+  <div class="recipe-rating" attr.data-rating="{{recipe.rating}}"></div>
     <ul *ngIf="recipe.flavours" class="flavours">
       <li *ngFor="let flavour of recipe.flavours" class="flavour">{{flavour.name}}: {{flavour.proportion}}</li>
     </ul>
