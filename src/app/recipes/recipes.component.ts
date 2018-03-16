@@ -57,26 +57,35 @@ export class RecipesComponent implements OnInit {
   }
   add(form, recipeName: string): void {
     const authorId = this.auth.user[0].id;
-    console.log(authorId);
     const recipe = { name: recipeName, authorId, flavours: [] };
     const flavours = document.getElementsByClassName("flavourName");
     const flavourProportions = document.getElementsByClassName("flavourProportions");
-    for (let i = 0; i < flavours.length; i++) {
-      recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })
-    }
-    this.recipeService.addRecipe(recipe as Recipe)
-      .subscribe(recipe => {
-        this.recipes.push(recipe);
-        setTimeout(() => { this.drawRating() });
-      });
+    console.log(flavourProportions);
+    if (recipeName && flavours[0].value) {
+      for (let i = 0; i < flavours.length; i++) {
+        recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })
+      }
+      this.recipeService.addRecipe(recipe as Recipe)
+        .subscribe(recipe => {
+          this.recipes.push(recipe);
+          setTimeout(() => { this.drawRating() });
+        });
 
-    form.reset();
-    const flavoursBox = document.querySelector('.add-recipe-form .flavours');
-    const flavourRow = document.createElement("div");
-    flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = "<label>Name: <input class='flavourName' /> </label><label>Proportions: <input class='flavourProportions'  /></label>";
-    flavoursBox.innerHTML = '';
-    flavoursBox.appendChild(flavourRow);
+      form.reset();
+      const flavoursBox = document.querySelector('.add-recipe-form .flavours');
+      const flavourRow = document.createElement("div");
+      flavourRow.className = "flavour-row";
+      flavourRow.innerHTML = `<label class="input-box">
+        <input class="flavourName" required /><span class="label-text">Name</span>
+      </label>
+      <label class="input-box range-box">
+        <span class="range-value">0%</span>
+        <input class="flavourProportions filled"  value="0"  type="range" min="0" max="20" step="0.5" required  />
+        <span class="label-text">Proportions</span>
+      </label>`;
+      flavoursBox.innerHTML = '';
+      flavoursBox.appendChild(flavourRow);
+    }
   }
   delete(recipe: Recipe): void {
     if (confirm(`Delete recipe ${recipe.name}?`)) {
@@ -95,12 +104,25 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
     this.loc = location.pathname;
     this.checkLocation();
+    $(document).on("input", 'input[type="range"]', function () {
+      $(this).closest('.range-box').find('.range-value').html(`${this.value}%`);
+    });
+    $(document).on("submit", ".add-recipe-form", function (e) {
+      e.preventDefault();
+    })
   }
   addFlavour() {
     const flavoursBox = document.querySelector('.add-recipe-form .flavours');
     const flavourRow = document.createElement("div");
     flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = "<label>Name: <input class='flavourName' /> </label><label>Proportions: <input class='flavourProportions'  /></label>";
+    flavourRow.innerHTML = `<label class="input-box">
+    <input class="flavourName" required /><span class="label-text">Name</span>
+  </label>
+  <label class="input-box range-box">
+    <span class="range-value">0%</span>
+    <input class="flavourProportions filled"  value="0" type="range" min="0" max="20" step="0.5" required  />
+    <span class="label-text">Proportions</span>
+  </label>`;
     flavoursBox.appendChild(flavourRow);
   }
 

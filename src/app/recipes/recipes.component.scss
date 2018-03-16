@@ -2,7 +2,7 @@
 @import '../../sass/mixin';
 
 :host ::ng-deep .recipes-list {
-    margin:0;
+    margin:0 0 55px;
     padding:0;
     padding-left:35px;
     counter-reset: recipe;
@@ -84,7 +84,8 @@
     padding: 15px;
     margin: 15px 0;
     h3 {
-        margin:15px 0 10px;
+        margin:25px 0 0px;
+        padding: 0;
         display:flex;
         align-items:center;
     }
@@ -103,16 +104,24 @@
     .flavours {
         border:0;
         outline:0;
-        margin: 15px 0;
+        margin: 10px 0;
+        padding:0;
     }
     .flavour-row {
         display:flex;
         flex-flow:row nowrap;
         align-items:center;
-        margin: 0 0 10px;
+        margin: 0 0 15px;
         label {
             display:block;
             flex: 1 1 50%;
+        }
+        .input-box {
+            margin-right: 1em;
+        }
+        .range-box {
+            margin-left:1em;
+            margin-right:0;
         }
     }
 }

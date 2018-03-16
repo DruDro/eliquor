@@ -24,6 +24,10 @@ export class SearchRecipesComponent implements OnInit {
   search(term: string): void {
     this.searchTerms.next(term);
   }
+  clear(searchBox): void {
+    searchBox.value = '';
+    searchBox.dispatchEvent(new Event("input"));
+  }
 
   ngOnInit(): void {
     this.recipes$ = this.searchTerms.pipe(

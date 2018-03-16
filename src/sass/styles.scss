@@ -1,15 +1,16 @@
 // bootstrap styles are imported along with the whole angular-bootstrap-md module in the app.module.ts
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Montserrat:300,400,400i,900');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,700|Montserrat:300,400,400i,500,900');
 @import 'mixin';
 @import 'variables';
 @import 'normalize';
-
 * {
     outline: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
-app-root, .app {    
+
+app-root,
+.app {
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -19,30 +20,33 @@ app-root, .app {
     align-items: stretch;
     justify-content: space-between;
 }
+
 body {
     color: $c-main;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     font: $font;
-    height:100vh;
-    min-width:320px;
+    height: 100vh;
+    min-width: 320px;
     background: $main-bg;
 }
+
 @keyframes Gradient {
-	0% {
-		background-position: 0% 0%
-	}
-	50% {
-		background-position: 100% 100%
-	}
-	100% {
-		background-position: 0% 0%
-	}
+    0% {
+        background-position: 0% 0%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-position: 0% 0%
+    }
 }
+
 .container {
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 15px;
     &--fluid {
         @extend .container;
@@ -52,28 +56,35 @@ body {
 
 a {
     color: $c-link;
-    text-decoration:none;
+    text-decoration: none;
     &:visited:not(.btn) {
-        color:$c-link-visited;
+        color: $c-link-visited;
     }
     &:hover:not(.btn) {
-        color:$c-link-hover;
+        color: $c-link-hover;
     }
     &:active:not(.btn) {
-        color:$c-link-active;
+        color: $c-link-active;
     }
 }
 
-h1,h2,h3,h4,h5,h6 {
-    color:$c-headers;
-    font-weight:300;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $c-headers;
+    font-weight: 300;
 }
-h1 {    
-    font-family:$font-family-h;
-    &.page-title{
+
+h1 {
+    font-family: $font-family-h;
+    &.page-title {
         margin: 25px 0 50px;
     }
 }
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -81,56 +92,57 @@ input[type="submit"],
 .btn {
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
-    border:$border-btn;
-    outline:0;
-    box-shadow:none;
-    background:$bg-btn;//$bg-btn;
-    color:$c-btn;
-    text-decoration:none;
-    display:block;
-    text-align:center;
+    border: $border-btn;
+    outline: 0;
+    box-shadow: none;
+    background: $bg-btn; //$bg-btn;
+    color: $c-btn;
+    text-decoration: none;
+    display: block;
+    text-align: center;
     padding: 6px 12px;
-    transition:all .15s ease-in-out;
-    cursor:pointer;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
     &:hover {
         background: $bg-btn-hover;
-        color:$c-btn-hover;
+        color: $c-btn-hover;
     }
     &:active {
         background: $bg-btn-active;
-        color:$c-btn-active;
+        color: $c-btn-active;
     }
 }
 
 .btn--primary {
     @extend .btn;
     background: $bg-btn-primary;
-    color:$c-btn-primary;
-    border:$border-btn-primary;
+    color: $c-btn-primary;
+    border: $border-btn-primary;
     &:hover {
         background: $bg-btn-primary-hover;
-        color:$c-btn-primary-hover;
+        color: $c-btn-primary-hover;
     }
     &:active {
         background: $bg-btn-primary-active;
-        color:$c-btn-primary-active;
+        color: $c-btn-primary-active;
     }
 }
 
 .btn--inverse {
     @extend .btn;
     background: $bg-btn-primary-hover;
-    color:$c-btn-hover;
-    border:$border-btn;
+    color: $c-btn-hover;
+    border: $border-btn;
     &:hover {
         background: $bg-btn;
-        color:$c-btn;
+        color: $c-btn;
     }
     &:active {
         background: $bg-btn-active;
-        color:$c-btn-active;
+        color: $c-btn-active;
     }
 }
+
 .btn--transparent {
     @extend .btn;
     background: transparent;
@@ -142,64 +154,241 @@ input[type="submit"],
     }
 }
 
+.btn--clear {
+    color: #9c2929;
+    @extend .btn--transparent;
+}
+
 .center-text {
-    text-align:center;
+    text-align: center;
 }
 
 .center {
-    align-self:center;
-    justify-self:center;
-    margin-right:auto;
-    margin-left:auto;
+    align-self: center;
+    justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
 }
+
 .input-box {
-    position:relative;
-    display:block;
+    position: relative;
+    display: block;
+    padding: 1em 0 0;
     .label-text {
-        position:absolute;
-        bottom:0;
-        transition:all .15s ease-in-out;
-        color:$c-main;
-        line-height:50px;
+        position: absolute;
+        top: 1em;
+        transition: all .15s ease-in-out;
+        color: $c-main;
         padding: 0 15px;
-        width:100%;
+        width: 100%;
         cursor: text;
+        font: $font;
+        font-family: $font-family-h;
+        line-height: 50px;
     }
-    input:focus, input.filled { 
-        & ~ .label-text {
-            font-size:.8em;
-            bottom:calc(100% - 1em);
-            color:#000;
-            line-height:1em;
-            padding:0 5px;
+    input:focus,
+    input.filled {
+        &~.label-text {
+            font-size: .9em;
+            line-height: 1em;
+            padding: 0 5px;
+            height: 1em;
+            top: 0;
+            background: #252525;
+            font-weight: 500;
         }
     }
-    input.filled:not(:focus) { 
-        & ~ .label-text {
-            color:$c-main;
+    input.filled:not(:focus) {
+        &~.label-text {
+            color: $c-main;
+            background: transparent;
         }
     }
 }
+
 input {
-    display:block;
-    width:100%;
-    margin:0;
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
     padding: 0 15px;
-    height:50px;
-    border:0;
-    border-bottom:3px solid #252525;
+    height: 50px;
+    border: 0;
+    border-bottom: 3px solid #252525;
     color: #eee;
     min-height: 2.5em;
-    background:transparent;
+    background: transparent;
     transition: all .15s ease-in-out;
+    font: $font;
+    font-family: $font-family-h;
     @include placeholderColor(#eee);
     &:hover {
-        border-color:#eee;
+        border-color: #eee;
     }
     &:focus {
-        color:#252525;
-        border-color:#eee;
+        color: #252525;
+        border-color: #eee;
         background: #eee;
-        @include placeholderColor(rgba($c-primary,.7)!important);
+        @include placeholderColor(rgba($c-primary, .7)!important);
     }
+}
+
+input[type=range] {
+    padding: 0;
+    -webkit-appearance: none;
+    width: 100%;
+    bottom: -5px;
+    height: 20px;
+    border: 1px solid #eee;
+    border-width: 0 2px;
+    min-height: 15px;
+    background: transparent;
+}
+
+input[type=range]:focus {
+    outline: none;
+    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+
+/* Special styling for WebKit/Blink */
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 50%;
+    margin-top: -6px;
+    height: 16px;
+    width: 16px;
+    background: #eee;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+input[type=range]:focus::-webkit-slider-thumb {
+    background: #252525;
+}
+
+
+/* All the same stuff for Firefox */
+
+input[type=range]::-moz-range-thumb {
+    border: 0;
+    border-radius: 50%;
+    margin-top: -3px;
+    height: 16px;
+    width: 16px;
+    background: #eee;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+input[type=range]:focus::-moz-range-thumb {
+    background: #252525;
+}
+
+
+/* All the same stuff for IE */
+
+input[type=range]::-ms-thumb {
+    border: 0;
+    border-radius: 50%;
+    margin-top: 0;
+    height: 16px;
+    width: 16px;
+    background: #eee;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+input[type=range]:focus::-ms-thumb {
+    background: #252525;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height:3px;
+    cursor: pointer;
+    background:#252525;
+    border-radius: 0;
+    border: 0;
+    transition: all .15s ease-in-out;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background:#eee;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height:3px;
+    cursor: pointer;
+    background:#252525;
+    border-radius: 0;
+    border: 0;
+    transition: all .15s ease-in-out;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background:#eee;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height:3px;
+    cursor: pointer;
+    border-radius: 0;
+    border: 0;
+    border-color: transparent;
+    color: transparent;
+    transition: all .15s ease-in-out;
+    /* Hides the slider so custom styles can be added */
+    background:#252525;
+}
+input[type=range]:focus::-ms-track {
+    background:#eee;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: transparent;
+    border: 0;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: transparent;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: transparent;
+    border: 0;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: transparent;
+}
+
+.range-box {
+    position: relative;
+    .label-text {
+        font-size: .9em;
+        line-height: 1em;
+        padding: 0 5px;
+        height: 1em;
+        top: 0;
+        font-weight: 500;
+    }
+}
+
+.range-value {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin-bottom: -10px;
+    text-align: center;
+    background: #252525;
+    line-height: 45px;
+    border-radius: 50%;
+    font-size: .9em;
 }

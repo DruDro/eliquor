@@ -8,6 +8,13 @@
 #search-box {
     margin: 0 auto 0;
 }
+#search-box ~ .btn--clear {
+    position:absolute;
+    right:0;
+    top:0;
+    height:100%;
+    width:40px;
+}
 .search-result {
     margin:0;
     padding:0;

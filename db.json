@@ -16,15 +16,15 @@
       "flavours": [
         {
           "name": "Cream",
-          "proportion": "2%"
+          "proportion": "2"
         },
         {
           "name": "Chocolate",
-          "proportion": "8%"
+          "proportion": "8"
         },
         {
           "name": "Mint",
-          "proportion": "3%"
+          "proportion": "3"
         }
       ]
     },
@@ -36,7 +36,7 @@
       "flavours": [
         {
           "name": "Apple",
-          "proportion": "10%"
+          "proportion": "10"
         }
       ]
     },
@@ -48,15 +48,15 @@
       "flavours": [
         {
           "name": "Cream",
-          "proportion": "2%"
+          "proportion": "2"
         },
         {
           "name": "Strawberry",
-          "proportion": "10%"
+          "proportion": "10"
         },
         {
           "name": "Bavarian Cream",
-          "proportion": "2%"
+          "proportion": "2"
         }
       ]
     },
@@ -68,15 +68,15 @@
       "flavours": [
         {
           "name": "Pomegranate",
-          "proportion": "5%"
+          "proportion": "5"
         },
         {
           "name": "Tequila",
-          "proportion": "5%"
+          "proportion": "5"
         },
         {
           "name": "Lemonade",
-          "proportion": "5%"
+          "proportion": "5"
         }
       ]
     },
@@ -88,15 +88,15 @@
       "flavours": [
         {
           "name": "Chocolate",
-          "proportion": "5%"
+          "proportion": "5"
         },
         {
           "name": "Cherry",
-          "proportion": "10%"
+          "proportion": "10"
         },
         {
           "name": "Cream",
-          "proportion": "2%"
+          "proportion": "2"
         }
       ]
     }
