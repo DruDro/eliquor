@@ -62,21 +62,21 @@
     },
     {
       "id": 13,
+      "rating": 4.8,
       "name": "Tequila boom",
       "authorId": 1,
-      "rating": 4.65,
       "flavours": [
         {
           "name": "Pomegranate",
-          "proportion": "5"
+          "proportion": "4.5"
         },
         {
           "name": "Tequila",
-          "proportion": "5"
+          "proportion": "6"
         },
         {
           "name": "Lemonade",
-          "proportion": "5"
+          "proportion": "2.5"
         }
       ]
     },

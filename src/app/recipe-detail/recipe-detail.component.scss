@@ -1,14 +1,127 @@
 @import '../../sass/variables';
 @import '../../sass/mixin';
-
 :host ::ng-deep .recipe-detail {
-    
+    .page-title {
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+        text-align: center;
+        .btn--back {
+            margin: 0 -44px 0 0;
+            flex: 0 0 auto;
+        }
+        span {
+            flex: 1 1 auto;
+        }
+    }
     .recipe-rating {
-        font-size:1rem;
-        text-align:center;
-        [class*="fa"]{
+        font-size: 1rem;
+        text-align: center;
+        [class*="fa"] {
             margin: 0 .2em;
-            display:inline-block;
+            display: inline-block;
+        }
+    }
+    .flavours {
+        list-style: none;
+        li {
+            &:before {
+                display: inline-block;
+                content: "\f043";
+                font-family: FontAwesome;
+                margin: 0 10px 0 0;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .add-recipe-form {
+    background: rgba(#000, .3);
+    padding: 15px;
+    margin: 15px auto;
+    h3 {
+        margin:25px 0;
+        padding: 0;
+        display:flex;
+        align-items:center;
+    }
+    .add-flavour {
+        color: $c-primary;
+        border: 0;
+        padding: 0;
+        font-size: 2rem;
+        line-height: 2rem;
+        margin: 0 0 0 15px;
+        &:hover,
+        &:active {
+            background: transparent;
+            color: #fff;
+        }
+    }
+    .flavours {
+        border: 0;
+        outline: 0;
+        margin: 10px auto;
+        padding: 0;
+        max-width: 100%;
+    }
+    .flavour-row {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin: 0 0 25px;
+        label {
+            display: block;
+            flex: 1 1 50%;
+        }
+        .input-box {
+            margin-right: 1em;
+        }
+        .range-box {
+            margin-left: 1em;
+            margin-right: 0;
+        }
+        @include b(mobile) {
+            display: block;
+            background: #333;
+            padding: 15px;
+            .input-box {
+                margin-right: 0;
+            }
+            .range-box {
+                margin-top: 15px;
+                margin-left: 0;
+            }
+        }
+    }
+    [type="submit"]{
+        margin: 0 auto;
+    }
+}
+
+:host ::ng-deep .add-recipe-form.notAuthor {
+    .flavours {
+        width: 768px;
+    }
+    .flavour-row {
+        display: block;
+        margin: 0 0 25px;
+        .label-text {
+            text-align: center;
+        }
+        .input-box {
+            margin-right: 0;
+        }
+        .range-box {
+            margin-left: 0;
+        }
+        @include b(mobile) {
+            display: block;
+            background: transparent;
+            padding: 0;
+            .range-box {
+                margin-top: 0;
+            }
         }
     }
 }

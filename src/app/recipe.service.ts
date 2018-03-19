@@ -57,8 +57,8 @@ export class RecipeService {
       catchError(this.handleError<Recipe>(`getRecipe id=${id}`))
     );
   }
-  updateRecipe(recipe: Recipe): Observable<any> {
-    return this.http.put(this.recipesUrl, recipe, httpOptions).pipe(
+  updateRecipe(recipeId, recipe: Recipe): Observable<any> {
+    return this.http.put(`${this.recipesUrl}/${recipeId}`, recipe, httpOptions).pipe(
       tap(_ => this.log(`updated recipe id=${recipe.id}`)),
       catchError(this.handleError<any>('updateRecipe'))
     );

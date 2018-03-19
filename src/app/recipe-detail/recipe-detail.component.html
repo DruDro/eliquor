@@ -1,9 +1,54 @@
 <div *ngIf="recipe" class="recipe-detail center">
-  <h1 class="page-title center-text">{{ recipe.name }}</h1>
-  <div class="recipe-rating" attr.data-rating="{{recipe.rating}}"></div>
-    <ul *ngIf="recipe.flavours" class="flavours">
-      <li *ngFor="let flavour of recipe.flavours" class="flavour">{{flavour.name}}: {{flavour.proportion}}%</li>
-    </ul>
+  <h1 class="page-title center-text">
+    <button (click)="goBack()" type="button" class="btn--back">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <span>{{ recipe.name }}</span>
+  </h1>
+  <div *ngIf="auth.isAuthenticated && recipe.authorId == auth.user[0].id; else rate" class="recipe-rating" attr.data-rating="{{recipe.rating}}"></div>
+  <ng-template #rate>
+    <div class="recipe-rating rate" attr.data-rating="{{recipe.rating}}">rate</div>
+  </ng-template>
+  <form ngNativeValidate class="add-recipe-form" *ngIf="auth.isAuthenticated && recipe.authorId == auth.user[0].id; else notAuthor"
+    #updateRecipe>
+    <label class="input-box">
+      <input type="text" #recipeName value="{{recipe.name}}" class="filled" required />
+      <span class="label-text">Recipe name</span>
+    </label>
+    <h3>Flavours:
+      <button (click)="addFlavour()" class="add-flavour btn--transparent" >
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </h3>
+    <fieldset class="flavours" >
+      <div *ngFor="let flavour of recipe.flavours" class="flavour-row">
+        <label class="input-box">
+          <input class="flavourName filled" required value="{{flavour.name}}"  />
+          <span class="label-text">Name</span>
+        </label>
+        <label class="input-box range-box">
+          <span class="range-value">{{flavour.proportion}}%</span>
+          <input class="flavourProportions filled" value="{{flavour.proportion}}" type="range" min="0" max="20" step="0.5" required  />
+          <span class="label-text">Proportions</span>
+        </label>
+      </div>
+    </fieldset>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="submit" class=" btn--inverse" (click)="save(updateRecipe, recipe.id, recipeName.value, recipe.rating);" >
+        <i class="fas fa-save"></i> Save changes
+    </button>
+  </form>
+  <ng-template #notAuthor>
+  <form class="add-recipe-form notAuthor">
+    <fieldset class="flavours" >
+      <div *ngFor="let flavour of recipe.flavours" class="flavour-row">
+        <label class="input-box range-box">
+          <span class="range-value">{{flavour.proportion}}%</span>
+          <input class="flavourProportions filled" value="{{flavour.proportion}}" type="range" min="0" max="20" step="0.5" required disabled />
+          <span class="label-text">{{flavour.name}}</span>
+        </label>
+      </div>
+    </fieldset>
+  </form>
+</ng-template>
 </div>
-<button (click)="goBack()" type="button" class="btn">Back</button>
-<button (click)="save()">save</button>

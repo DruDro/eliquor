@@ -15,11 +15,19 @@
     width: 100%;
     background: $bg-header;
     z-index: 99999;
+    min-width: 320px;
     .logo{
         color:#fff;
         font-size:1.4em;
         text-decoration:none;
-        transition: all .15s ease-in-out;
+        transition: all .15s ease-in-out;        
+        @include b(mobile){
+            font-size:0;
+            svg {
+                font-size:16px !important;
+                vertical-align:middle;
+            }
+        }
         svg {
             color:$c-primary;
             transition: all .15s ease-in-out;
@@ -63,6 +71,7 @@
                 svg {
                     font-size:16px !important;
                     vertical-align:middle;
+                    margin: 0;
                 }
             }
         }

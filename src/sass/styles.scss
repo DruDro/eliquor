@@ -81,7 +81,8 @@ h6 {
 h1 {
     font-family: $font-family-h;
     &.page-title {
-        margin: 25px 0 50px;
+        margin: 25px 0;
+        line-height:1.4em;
     }
 }
 
@@ -102,6 +103,9 @@ input[type="submit"],
     text-align: center;
     padding: 6px 12px;
     transition: all .15s ease-in-out;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     &:hover {
         background: $bg-btn-hover;
@@ -110,6 +114,10 @@ input[type="submit"],
     &:active {
         background: $bg-btn-active;
         color: $c-btn-active;
+    }
+    [class*="fa"]{
+        margin-right:10px;
+        display:block;
     }
 }
 
@@ -159,6 +167,12 @@ input[type="submit"],
     @extend .btn--transparent;
 }
 
+.btn--back {
+    color: #eee;
+    @extend .btn--transparent;
+}
+
+
 .center-text {
     text-align: center;
 }
@@ -185,6 +199,10 @@ input[type="submit"],
         font: $font;
         font-family: $font-family-h;
         line-height: 50px;
+        z-index:1;
+    }
+    input {
+        z-index:2;
     }
     input:focus,
     input.filled {
@@ -268,6 +286,9 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]:focus::-webkit-slider-thumb {
     background: #252525;
 }
+input[type=range]:focus::-webkit-slider-thumb {
+    background: $c-primary;
+}
 
 
 /* All the same stuff for Firefox */
@@ -285,6 +306,9 @@ input[type=range]::-moz-range-thumb {
 
 input[type=range]:focus::-moz-range-thumb {
     background: #252525;
+}
+input[type=range]:focus::-moz-range-thumb {
+    background: $c-primary;
 }
 
 
@@ -304,6 +328,9 @@ input[type=range]::-ms-thumb {
 input[type=range]:focus::-ms-thumb {
     background: #252525;
 }
+input[type=range]:focus::-ms-thumb {
+    background: $c-primary;
+}
 
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
@@ -316,6 +343,9 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
+    background:#eee;
+}
+input[type=range]:hover::-webkit-slider-runnable-track {
     background:#eee;
 }
 
@@ -333,6 +363,10 @@ input[type=range]:focus::-moz-range-track {
     background:#eee;
 }
 
+input[type=range]:hover::-moz-range-track {
+    background:#eee;
+}
+
 input[type=range]::-ms-track {
     width: 100%;
     height:3px;
@@ -346,6 +380,9 @@ input[type=range]::-ms-track {
     background:#252525;
 }
 input[type=range]:focus::-ms-track {
+    background:#eee;
+}
+input[type=range]:hover::-ms-track {
     background:#eee;
 }
 
@@ -392,3 +429,8 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 50%;
     font-size: .9em;
 }
+input::-ms-clear,
+input::-ms-reveal {
+    display: none;
+}
+[hidden] { display: none !important;}
