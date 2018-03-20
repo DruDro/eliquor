@@ -2,9 +2,15 @@
   "users": [
     {
       "id": 1,
+      "login": "drudro",
+      "password": "8fajrero",
+      "displayName": "Super-admin"
+    },
+    {
+      "id": 2,
       "login": "test",
       "password": "testtest",
-      "displayName": "Test User"
+      "displayName": "Test user"
     }
   ],
   "recipes": [
@@ -77,10 +83,6 @@
         {
           "name": "Lemonade",
           "proportion": "2.5"
-        },
-        {
-          "name": "asdasd",
-          "proportion": "14"
         }
       ]
     },
@@ -101,6 +103,25 @@
         {
           "name": "Cream",
           "proportion": "2"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Cubana",
+      "authorId": 1,
+      "flavours": [
+        {
+          "name": "Cigar",
+          "proportion": "5"
+        },
+        {
+          "name": "Rum",
+          "proportion": "3"
+        },
+        {
+          "name": "Lime",
+          "proportion": "7"
         }
       ]
     }

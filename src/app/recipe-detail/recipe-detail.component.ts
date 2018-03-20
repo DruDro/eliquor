@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Recipe } from '../Recipe';
 import { RecipeService }  from '../recipe.service';
@@ -19,7 +19,8 @@ export class RecipeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private recipeService: RecipeService,
     private location: Location,
-    public auth: AuthService
+    public auth: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -61,11 +62,17 @@ export class RecipeDetailComponent implements OnInit {
         setTimeout(() => this.drawRating());
       });
   }
+  delete(recipe: Recipe): void {
+    if (confirm(`Delete recipe ${recipe.name}?`)) {
+      this.recipeService.deleteRecipe(recipe).subscribe(() => this.router.navigate(['/my-recipes']));
+    }
+  }
   addFlavour() {
     const flavoursBox = document.querySelector('.add-recipe-form .flavours');
     const flavourRow = document.createElement("div");
     flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = `<label class="input-box">
+    flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button>
+    <label class="input-box">
     <input class="flavourName" required /><span class="label-text">Name</span>
   </label>
   <label class="input-box range-box">

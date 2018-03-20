@@ -10,7 +10,7 @@
                 <a class="btn" routerLink="/recipes"><i class="fas fa-book"></i>Recipes</a>
             </li>
             <li class="nav-item" >
-                <a class="btn" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-book"></i>My Recipes</a>
+                <a class="btn" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-archive"></i>My Recipes</a>
             </li>
         </ul>
             <button
@@ -35,7 +35,7 @@
     <div class="container">
 
         <router-outlet></router-outlet>
-
+        <!-- <app-messages></app-messages> -->
     </div>
 </main>
 <!--Main Content-->
@@ -43,7 +43,8 @@
 
 <!--Footer info-->
 <footer>
-<p class="center-text"><small>&copy; <b>eliquor</b> - 2018. Designed and developed by <a href="http://github.com/drudro" target="_blank">DruDro</a></small></p>    <!-- <app-messages></app-messages> -->
+<p class="center-text"><small>&copy; <b>eliquor</b> - 2018. Designed and developed by <a href="http://github.com/drudro" target="_blank">DruDro</a></small></p>   
+
 
 </footer>
 <!--Footer info-->

@@ -75,7 +75,7 @@ export class RecipesComponent implements OnInit {
       const flavoursBox = document.querySelector('.add-recipe-form .flavours');
       const flavourRow = document.createElement("div");
       flavourRow.className = "flavour-row";
-      flavourRow.innerHTML = `<label class="input-box">
+      flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button><label class="input-box">
         <input class="flavourName" required /><span class="label-text">Name</span>
       </label>
       <label class="input-box range-box">
@@ -115,7 +115,7 @@ export class RecipesComponent implements OnInit {
     const flavoursBox = document.querySelector('.add-recipe-form .flavours');
     const flavourRow = document.createElement("div");
     flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = `<label class="input-box">
+    flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button><label class="input-box">
     <input class="flavourName" required /><span class="label-text">Name</span>
   </label>
   <label class="input-box range-box">

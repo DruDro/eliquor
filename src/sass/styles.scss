@@ -162,13 +162,15 @@ input[type="submit"],
     }
 }
 
-.btn--clear {
+.btn--clear, .btn--delete {
     color: #9c2929;
+    padding:0;
     @extend .btn--transparent;
 }
 
 .btn--back {
     color: #eee;
+    padding:0;
     @extend .btn--transparent;
 }
 
@@ -387,6 +389,7 @@ input[type=range]:hover::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
+    transition: all .15s ease-in-out;
     background: transparent;
     border: 0;
 }
@@ -396,6 +399,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 input[type=range]::-ms-fill-upper {
+    transition: all .15s ease-in-out;
     background: transparent;
     border: 0;
 }

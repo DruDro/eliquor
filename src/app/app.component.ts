@@ -28,5 +28,13 @@ export class AppComponent {
     const app = this;
     this.checkInputs();
     $(document).on("change", ".input-box input", function () { app.checkInputs() });
+    $(document).on("click", ".btn--removeFlavour", function(e) {
+      e.preventDefault();
+      const btn = $(this);
+      const flavour = btn.closest('.flavour-row');
+      if (confirm(`Delete flavour from the recipe?`)) {
+        flavour.remove();
+      }
+    });
   }
 }
