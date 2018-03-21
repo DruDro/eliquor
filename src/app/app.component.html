@@ -17,14 +17,14 @@
               class="btn btn-margin"
               *ngIf="!auth.isAuthenticated"
               routerLink="/login">
-              <i class="fas fa-sign-in-alt"></i>Log In
+              Log In<i class="fas fa-sign-in-alt icon-right"></i>
             </button>
       
             <button
               class="btn btn-margin"
               *ngIf="auth.isAuthenticated"
               (click)="auth.logout()">
-              <i class="fas fa-sign-out-alt"></i>Log Out
+              Log Out<i class="fas fa-sign-out-alt icon-right"></i>
             </button>
     </nav>
 </header>

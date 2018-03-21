@@ -22,8 +22,9 @@ export class RecipeService {
       );
   }
   getMyRecipes(): Observable<Recipe[]> {
+    const myRecipesUrl = this.auth.user.length ? `${this.recipesUrl}/?authorId=${this.auth.user[0].id}` : '';  // URL to web api
     this.messageService.add('RecipeService: fetched user recipes');
-    return this.http.get<Recipe[]>(this.myRecipesUrl)
+    return this.http.get<Recipe[]>(myRecipesUrl)
       .pipe(
         tap(recipes => this.log(`fetched recipes`)),
         catchError(this.handleError('getMyRecipes', []))
@@ -91,12 +92,11 @@ export class RecipeService {
     private http: HttpClient,
     private messageService: MessageService,
     public auth: AuthService
-  ) { }
+  ) {
+   }
   private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
   private recipesUrl = 'http://localhost:3001/recipes';  // URL to web api
-  private myRecipesUrl = this.auth.user.length ? `http://localhost:3001/recipes?authorId=${this.auth.user[0].id}` : '';  // URL to web api
   private topRecipesUrl = 'http://localhost:3001/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
-
 }

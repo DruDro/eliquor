@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../Recipe';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import 'rxjs/add/operator/filter';
 import * as $ from 'jquery';
 
 @Component({
@@ -12,13 +13,12 @@ import * as $ from 'jquery';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
-  private loc: string;
+  public loc: string;
   constructor(
     private recipeService: RecipeService,
     public auth: AuthService,
     private router: Router
   ) {
-
   }
 
   drawRating(): void {
@@ -57,10 +57,9 @@ export class RecipesComponent implements OnInit {
   }
   add(form, recipeName: string): void {
     const authorId = this.auth.user[0].id;
-    const recipe = { name: recipeName, authorId, flavours: [] };
-    const flavours = document.getElementsByClassName("flavourName");
-    const flavourProportions = document.getElementsByClassName("flavourProportions");
-    console.log(flavourProportions);
+    const recipe = { name: recipeName, authorId, flavours: [], createdAt: Date.now() };
+    const flavours: any = document.getElementsByClassName("flavourName");
+    const flavourProportions: any = document.getElementsByClassName("flavourProportions");
     if (recipeName && flavours[0].value) {
       for (let i = 0; i < flavours.length; i++) {
         recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })

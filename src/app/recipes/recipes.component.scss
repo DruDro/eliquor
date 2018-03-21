@@ -53,6 +53,12 @@
                 display:inline-block;
             }
         }
+        .createdAt {
+            font-size:.7em;
+            letter-spacing:1px;
+            display:block;
+            padding:0 0 5px;
+        }
         .btn--delete {
             position:absolute;
             right:0;

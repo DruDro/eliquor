@@ -2,7 +2,7 @@
 
 <h1 *ngIf="loc=='/recipes'" class="center-text page-title">All Recipes</h1>
 <h1 *ngIf="loc=='/my-recipes'" class="center-text page-title">My Recipes</h1>
-<ng-template #norecipes>You have added no recipes yet. Use the below form to add a new recipe.</ng-template>
+<ng-template #norecipes>No recipes yet.</ng-template>
 <ol class="recipes-list" *ngIf="recipes?.length; else norecipes">
   <li class="recipes-list__header">
     <div style="padding: 8px 15px">
@@ -11,16 +11,17 @@
   </li>
   <li *ngFor="let recipe of recipes" class="recipe" value="{{recipe.id}}">
     <a routerLink="/detail/{{recipe.id}}" class="btn">
-      <span class="recipe-rating" attr.data-rating="{{recipe.rating}}"></span> {{recipe.name}}
+      <span class="recipe-rating" attr.data-rating="{{recipe.rating}}"></span>
+      <span class="createdAt">{{recipe.createdAt | createdAt}}</span> <span class="recipe-name">{{recipe.name}}</span>
     </a>
-    <button *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || auth.user[0].id == 1" class="btn--delete  btn--transparent" title="delete recipe"
+    <button *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || ( auth.isAuthenticated &&auth.user[0].id == 1)" class="btn--delete  btn--transparent" title="delete recipe"
       (click)="delete(recipe)">
       <i class="fas fa-trash"></i>
     </button>
   </li>
 </ol>
 <h2 *ngIf="auth.isAuthenticated && loc == '/my-recipes'" class="center-text">Add recipe</h2>
-<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || auth.user[0].id == 1" class="add-recipe-form" #addRecipe>
+<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated &&auth.user[0].id == 1)" class="add-recipe-form" #addRecipe>
   <label class="input-box">
     <input type="text" #recipeName required />
     <span class="label-text">Recipe name</span>

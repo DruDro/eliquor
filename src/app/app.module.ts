@@ -14,6 +14,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
+import { CreatedAtPipe } from './created-at.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchRecipesComponent } from './search-recipes/search-recipes.componen
     MessagesComponent,
     DashboardComponent,
     LoginComponent,
-    SearchRecipesComponent
+    SearchRecipesComponent,
+    CreatedAtPipe
   ],
   imports: [
     BrowserModule,

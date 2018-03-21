@@ -29,11 +29,17 @@
     .recipe-rating {
         font-size: 1rem;
         text-align: center;
-        margin: 0 0 30px;
+        margin: 0 0 15px;
         [class*="fa"] {
             margin: 0 .2em;
             display: inline-block;
         }
+    }
+    .createdAt {
+        display:block;
+        text-align:center;
+        margin: 0 0 30px;
+        color:#aaa;
     }
     .flavours {
         list-style: none;

@@ -4,13 +4,22 @@
       "id": 1,
       "login": "drudro",
       "password": "8fajrero",
-      "displayName": "Super-admin"
+      "displayName": "Super-admin",
+      "createdAt": 1521647588575
     },
     {
       "id": 2,
       "login": "test",
       "password": "testtest",
-      "displayName": "Test user"
+      "displayName": "Test user",
+      "createdAt": 1521634972
+    },
+    {
+      "id": 3,
+      "login": "test2",
+      "password": "testtest",
+      "displayName": "Test user",
+      "createdAt": 1521634972
     }
   ],
   "recipes": [
@@ -19,6 +28,7 @@
       "name": "Rittersport Mint",
       "authorId": 2,
       "rating": 5,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Cream",
@@ -39,6 +49,7 @@
       "name": "Apple Juice",
       "authorId": 2,
       "rating": 4.2,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Apple",
@@ -51,6 +62,7 @@
       "name": "Strawberry Yogurt",
       "authorId": 2,
       "rating": 4,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Cream",
@@ -71,6 +83,7 @@
       "rating": 4.8,
       "name": "Tequila boom",
       "authorId": 1,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Pomegranate",
@@ -91,6 +104,7 @@
       "name": "Cherrylate",
       "authorId": 2,
       "rating": 5,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Chocolate",
@@ -110,6 +124,7 @@
       "id": 16,
       "name": "Cubana",
       "authorId": 1,
+      "createdAt": 1521647588575,
       "flavours": [
         {
           "name": "Cigar",

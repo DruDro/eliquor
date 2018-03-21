@@ -17,7 +17,7 @@ export class AuthService {
   }
   login(login: string, password: string): void {
     this.getUser(login, password)
-      .subscribe(userResponse => {
+      .subscribe((userResponse:any)  => {
           if (userResponse.length) {
             this.isAuthenticated = true;
             localStorage.setItem("isAuthenticated", 'true');

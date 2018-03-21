@@ -84,10 +84,9 @@ export class RecipeDetailComponent implements OnInit {
   }
   save(form, recipeId: number, recipeName: string, recipeRating: number): void {
     const authorId = this.auth.user[0].id;
-    const recipe = { id: recipeId, rating: recipeRating, name: recipeName, authorId, flavours: [] };
-    const flavours = document.getElementsByClassName("flavourName");
-    const flavourProportions = document.getElementsByClassName("flavourProportions");
-    console.log(flavourProportions);
+    const recipe = { id: recipeId, rating: recipeRating, name: recipeName, authorId, flavours: [], createdAt: Date.now() };
+    const flavours: any = document.getElementsByClassName("flavourName");
+    const flavourProportions: any = document.getElementsByClassName("flavourProportions");
     if (recipeName && flavours[0].value) {
       for (let i = 0; i < flavours.length; i++) {
         recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })
