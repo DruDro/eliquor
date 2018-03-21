@@ -13,13 +13,14 @@ import * as $ from 'jquery';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
-  emails: string[] = ["aaa","bbb","ccc"];
+  addRecipe: Recipe;
   public loc: string;
   constructor(
     private recipeService: RecipeService,
     public auth: AuthService,
     private router: Router
   ) {
+    this.addRecipe = {id:0, name:"", flavours:[], authorId: this.auth.user[0].id, createdAt: 0};
   }
 
   drawRating(): void {
@@ -56,36 +57,21 @@ export class RecipesComponent implements OnInit {
       setTimeout(() => this.drawRating());
     });
   }
-  add(form, recipeName: string): void {
-    const authorId = this.auth.user[0].id;
-    const recipe = { name: recipeName, authorId, flavours: [], createdAt: Date.now() };
-    const flavours: any = document.getElementsByClassName("flavourName");
-    const flavourProportions: any = document.getElementsByClassName("flavourProportions");
-    if (recipeName && flavours[0].value) {
-      for (let i = 0; i < flavours.length; i++) {
-        recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })
-      }
-      this.recipeService.addRecipe(recipe as Recipe)
-        .subscribe(recipe => {
-          this.recipes.push(recipe);
-          setTimeout(() => { this.drawRating() });
-        });
-
-      form.reset();
-      const flavoursBox = document.querySelector('.add-recipe-form .flavours');
-      const flavourRow = document.createElement("div");
-      flavourRow.className = "flavour-row";
-      flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button><label class="input-box">
-        <input class="flavourName" required /><span class="label-text">Name</span>
-      </label>
-      <label class="input-box range-box">
-        <span class="range-value">0%</span>
-        <input class="flavourProportions filled"  value="0"  type="range" min="0" max="20" step="0.5" required  />
-        <span class="label-text">Proportions</span>
-      </label>`;
-      flavoursBox.innerHTML = '';
-      flavoursBox.appendChild(flavourRow);
-    }
+  addFlavour() {
+    this.addRecipe.flavours.push({name:"", proportion:0});
+  }
+  deleteFlavour(flavourIndex:number){
+    this.addRecipe.flavours.splice(flavourIndex, 1);
+  }
+  add(): void {
+    this.addRecipe.id = Math.max( ...this.recipes.map( recipe => recipe.id ) ) + 1;
+    this.addRecipe.createdAt = Date.now();
+    
+    this.recipeService.addRecipe(this.addRecipe as Recipe)
+    .subscribe(recipe => {
+      this.recipes.push(recipe);
+      setTimeout(() => { this.drawRating() });
+    });
   }
   delete(recipe: Recipe): void {
     if (confirm(`Delete recipe ${recipe.name}?`)) {
@@ -107,27 +93,7 @@ export class RecipesComponent implements OnInit {
     $(document).on("input", 'input[type="range"]', function () {
       $(this).closest('.range-box').find('.range-value').html(`${this.value}%`);
     });
-    $(document).on("submit", ".add-recipe-form", function (e) {
-      e.preventDefault();
-    })
-  }
-  addFlavour() {
-    const flavoursBox = document.querySelector('.add-recipe-form .flavours');
-    const flavourRow = document.createElement("div");
-    flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button><label class="input-box">
-    <input class="flavourName" required /><span class="label-text">Name</span>
-  </label>
-  <label class="input-box range-box">
-    <span class="range-value">0%</span>
-    <input class="flavourProportions filled"  value="0" type="range" min="0" max="20" step="0.5" required  />
-    <span class="label-text">Proportions</span>
-  </label>`;
-    flavoursBox.appendChild(flavourRow);
   }
 
-  addSmth(){
-    this.emails.push("ddd");
-  }
 
 }

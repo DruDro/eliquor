@@ -139,6 +139,22 @@
           "proportion": "7"
         }
       ]
+    },
+    {
+      "id": 17,
+      "name": "sdfsdfsdfsdf",
+      "flavours": [
+        {
+          "name": "sdfsdfsdfsdf",
+          "proportion": 4
+        },
+        {
+          "name": "sdfdsfsdfsdfsfd",
+          "proportion": 9
+        }
+      ],
+      "authorId": 1,
+      "createdAt": 1521672420450
     }
   ]
 }

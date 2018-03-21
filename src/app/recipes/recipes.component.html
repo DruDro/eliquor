@@ -21,9 +21,9 @@
   </li>
 </ol>
 <h2 *ngIf="auth.isAuthenticated && loc == '/my-recipes'" class="center-text">Add recipe</h2>
-<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated &&auth.user[0].id == 1)" class="add-recipe-form" #addRecipe>
+<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated && auth.user[0].id == 1)" class="add-recipe-form" (submit)="add();" name="addRecipe">
   <label class="input-box">
-    <input type="text" #recipeName required />
+    <input type="text" [(ngModel)]="addRecipe.name" value="{{addRecipe.name}}" name="name" required />
     <span class="label-text">Recipe name</span>
   </label>
   <h3><i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;Flavours:
@@ -32,29 +32,23 @@
     </button>
   </h3>
   <fieldset class="flavours">
-    <div class="flavour-row">
-      <button class="btn--clear btn--removeFlavour">
+    <div class="flavour-row" *ngFor="let flavour of addRecipe.flavours; let in=index">
+      <button class="btn--clear btn--removeFlavour" (click)="deleteFlavour(in)">
         <i class="far fa-times-circle"></i>
       </button>
       <label class="input-box">
-        <input class="flavourName" required />
+        <input class="flavourName" required [(ngModel)]="flavour.name" name="name{{in}}" />
         <span class="label-text">Name</span>
       </label>
       <label class="input-box range-box">
         <span class="range-value">0%</span>
-        <input class="flavourProportions filled" value="0" type="range" min="0" max="20" step="0.5" required />
+        <input class="flavourProportions filled" value="0" type="range" min="0" max="20" step="0.5" [(ngModel)]="flavour.proportion" name="proportion{{in}}" required />
         <span class="label-text">Proportions</span>
       </label>
     </div>
   </fieldset>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="submit" class=" btn--inverse" (click)="add(addRecipe, recipeName.value);">
+  <button type="submit" class=" btn--inverse" >
     <i class="fas fa-plus"></i> Add recipe
   </button>
 </form>
-<button type="button" (click)="addSmth()">Add smth</button>
-<div>
-  <span *ngFor="let email of emails">
-    {{email}}
-  </span>
-</div>
