@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../Recipe';
+import { Recipe, Flavour } from '../Recipe';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from '../auth.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -13,6 +13,7 @@ import * as $ from 'jquery';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
+  emails: string[] = ["aaa","bbb","ccc"];
   public loc: string;
   constructor(
     private recipeService: RecipeService,
@@ -123,6 +124,10 @@ export class RecipesComponent implements OnInit {
     <span class="label-text">Proportions</span>
   </label>`;
     flavoursBox.appendChild(flavourRow);
+  }
+
+  addSmth(){
+    this.emails.push("ddd");
   }
 
 }
