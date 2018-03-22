@@ -1,0 +1,22 @@
+<h1 class="page-title  center-text">Register</h1>
+<form ngNativeValidate (submit)="register()" class="register-form">
+  <label class="input-box">
+    <input type="text" [(ngModel)]="user.login" name="login"   required />
+    <span class="label-text">Login</span>
+  </label>
+  <label class="input-box">
+    <input type="text" [(ngModel)]="user.password" name="password" type="password" required />
+    <span class="label-text">Password</span>
+  </label>
+  <label class="input-box">
+    <input type="text" [(ngModel)]="user.displayName" name="displayName" required />
+    <span class="label-text">Display name</span>
+  </label>
+  <div class="form-actions">
+    <button type="submit" class="btn--primary"><i class="fas fa-user-plus"></i>Register</button>
+    <button class="btn" routerLink="/login">
+      Log In
+      <i class="fas fa-sign-in-alt icon-right"></i>
+    </button>
+  </div>
+</form>

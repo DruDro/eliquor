@@ -83,7 +83,10 @@ h1 {
     &.page-title {
         margin: 25px 0;
         line-height:1.4em;
-    }
+            @include b(mobile){
+                margin: 10px 0 25px;
+            }
+        }
 }
 
 button,
@@ -107,7 +110,7 @@ input[type="submit"],
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    &:hover {
+    &:hover,&.active {
         background: $bg-btn-hover;
         color: $c-btn-hover;
     }
@@ -130,7 +133,7 @@ input[type="submit"],
     background: $bg-btn-primary;
     color: $c-btn-primary;
     border: $border-btn-primary;
-    &:hover {
+    &:hover,&.active {
         background: $bg-btn-primary-hover;
         color: $c-btn-primary-hover;
     }
@@ -145,7 +148,7 @@ input[type="submit"],
     background: $bg-btn-primary-hover;
     color: $c-btn-hover;
     border: $border-btn;
-    &:hover {
+    &:hover,&.active {
         background: $bg-btn;
         color: $c-btn;
     }
@@ -158,7 +161,7 @@ input[type="submit"],
 .btn--transparent {
     @extend .btn;
     background: transparent;
-    &:hover {
+    &:hover,&.active {
         background: transparent;
     }
     &:active {

@@ -5,28 +5,41 @@
 <ng-template #norecipes>No recipes yet.</ng-template>
 <ol class="recipes-list" *ngIf="recipes?.length; else norecipes">
   <li class="recipes-list__header">
-    <div style="padding: 8px 15px">
-      Recipe name
+    <span>Recipe name</span>
+    <div class="sort">
+      <span>Sort by:</span>
+      <button title="Sorting by name" class="btn--transparent btn--sort" (click)="sort('name')">
+          <i class="fas fa-sort-alpha-down"></i>
+      </button>
+      <button title="Sorting by novelty" class="btn--transparent btn--sort" (click)="sort('createdAt')">
+        <i class="fas fa-clock"></i>
+      </button>
+      <button title="Sorting by rating" class="btn--transparent btn--sort" (click)="sort('rating')">
+        <i class="fas fa-star"></i>
+      </button>
     </div>
   </li>
   <li *ngFor="let recipe of recipes" class="recipe" value="{{recipe.id}}">
     <a routerLink="/detail/{{recipe.id}}" class="btn">
       <span class="recipe-rating" attr.data-rating="{{recipe.rating}}"></span>
-      <span class="createdAt">{{recipe.createdAt | createdAt}}</span> <span class="recipe-name">{{recipe.name}}</span>
+      <span class="createdAt">{{recipe.createdAt | createdAt}}</span>
+      <span class="recipe-name">{{recipe.name}}</span>
     </a>
-    <button *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || ( auth.isAuthenticated &&auth.user[0].id == 1)" class="btn--delete  btn--transparent" title="delete recipe"
-      (click)="delete(recipe)">
+    <button *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || ( auth.isAuthenticated &&auth.user[0].id == 1)"
+      class="btn--delete  btn--transparent" title="delete recipe" (click)="delete(recipe)">
       <i class="fas fa-trash"></i>
     </button>
   </li>
 </ol>
-<h2 *ngIf="auth.isAuthenticated && loc == '/my-recipes'" class="center-text">Add recipe</h2>
-<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated && auth.user[0].id == 1)" class="add-recipe-form" (submit)="add();" name="addRecipe">
+<h2 *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated && auth.user[0].id == 1)" class="center-text">Add recipe</h2>
+<form ngNativeValidate *ngIf="(auth.isAuthenticated && loc == '/my-recipes') || (auth.isAuthenticated && auth.user[0].id == 1)"
+  class="add-recipe-form" (submit)="add();" name="addRecipe">
   <label class="input-box">
     <input type="text" [(ngModel)]="addRecipe.name" value="{{addRecipe.name}}" name="name" required />
     <span class="label-text">Recipe name</span>
   </label>
-  <h3><i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;Flavours:
+  <h3>
+    <i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;Flavours:
     <button (click)="addFlavour()" class="add-flavour btn--transparent">
       <i class="fas fa-plus-circle"></i>
     </button>
@@ -41,14 +54,15 @@
         <span class="label-text">Name</span>
       </label>
       <label class="input-box range-box">
-        <span class="range-value">0%</span>
-        <input class="flavourProportions filled" value="0" type="range" min="0" max="20" step="0.5" [(ngModel)]="flavour.proportion" name="proportion{{in}}" required />
+        <span class="range-value">{{addRecipe.flavours[in].proportion}}%</span>
+        <input class="flavourProportions filled" value="0" type="range" min="0" max="20" step="0.5" [(ngModel)]="flavour.proportion"
+          name="proportion{{in}}" required />
         <span class="label-text">Proportions</span>
       </label>
     </div>
   </fieldset>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="submit" class=" btn--inverse" >
+  <button type="submit" class=" btn--inverse">
     <i class="fas fa-plus"></i> Add recipe
   </button>
 </form>

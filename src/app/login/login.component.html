@@ -1,6 +1,14 @@
 <h1 class="page-title center-text">Login</h1>
 <form action="" class="login-form" #loginform (submit)="authorize(loginform,login.value, password.value)">
-  <input type="text" placeholder="Login" (keyup)="0" required #login>
-  <input type="password" placeholder="Password" (keyup)="0" #password required>
-  <button type="submit" class="btn--inverse" >Login</button>
+  <label class="input-box">
+    <input type="text" (keyup)="0" required #login>
+    <span class="label-text">Login</span>
+  </label>
+  <label class="input-box">
+      <input type="password"  (keyup)="0" #password required type="password">
+      <span class="label-text">Password</span>
+    </label>
+  <div class="form-actions">
+  <button type="submit" class="btn--primary" ><i class="fas fa-sign-in-alt"></i>Login</button>
+  <button type="reset" routerLink="/register">Register<i class="fas fa-user-plus icon-right"></i></button></div>
 </form>

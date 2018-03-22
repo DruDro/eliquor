@@ -20,6 +20,12 @@
       "password": "testtest",
       "displayName": "Test user",
       "createdAt": 1521634972
+    },
+    {
+      "displayName": "Carramba",
+      "login": "caramba",
+      "password": "caramba",
+      "id": 4
     }
   ],
   "recipes": [
@@ -28,7 +34,7 @@
       "name": "Rittersport Mint",
       "authorId": 2,
       "rating": 5,
-      "createdAt": 1521647588575,
+      "createdAt": 1521722076904,
       "flavours": [
         {
           "name": "Cream",
@@ -40,7 +46,7 @@
         },
         {
           "name": "Mint",
-          "proportion": "3"
+          "proportion": 4
         }
       ]
     },
@@ -83,7 +89,7 @@
       "rating": 4.8,
       "name": "Tequila boom",
       "authorId": 1,
-      "createdAt": 1521647588575,
+      "createdAt": 1521721952961,
       "flavours": [
         {
           "name": "Pomegranate",
@@ -95,7 +101,7 @@
         },
         {
           "name": "Lemonade",
-          "proportion": "2.5"
+          "proportion": 2.5
         }
       ]
     },
@@ -123,6 +129,7 @@
     {
       "id": 16,
       "name": "Cubana",
+      "rating": 0,
       "authorId": 1,
       "createdAt": 1521647588575,
       "flavours": [
@@ -139,22 +146,6 @@
           "proportion": "7"
         }
       ]
-    },
-    {
-      "id": 17,
-      "name": "sdfsdfsdfsdf",
-      "flavours": [
-        {
-          "name": "sdfsdfsdfsdf",
-          "proportion": 4
-        },
-        {
-          "name": "sdfdsfsdfsdfsfd",
-          "proportion": 9
-        }
-      ],
-      "authorId": 1,
-      "createdAt": 1521672420450
     }
   ]
 }

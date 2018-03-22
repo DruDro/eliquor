@@ -15,6 +15,9 @@ export class AuthService {
   getUser(login: string, password: string): Observable<User> {
     return this.http.get<User>(`${this.usersURL}?login=${login}&password=${password}`);
   }
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.usersURL}`);
+  }
   login(login: string, password: string): void {
     this.getUser(login, password)
       .subscribe((userResponse:any)  => {
@@ -31,6 +34,18 @@ export class AuthService {
             localStorage.setItem("user", '');
           }
       });
+  }
+  register(user: User): void {
+    const checkUser:any = () => this.http.get<User>(`${this.usersURL}?login=${user.login}`);
+    const register:any = () => this.http.post(`${this.usersURL}`, user).subscribe(userAdded => {      
+      this.login(user.login, user.password);
+    });
+    checkUser().subscribe(userExists => userExists.length ? console.log(userExists) : register() )
+  }
+  update(user: User): void {
+    this.http.put(`${this.usersURL}/${user.id}`, user).subscribe(userAdded => {      
+      this.router.navigate(['/my-recipes'])
+    });
   }
   logout(): void {
     this.isAuthenticated = false; 

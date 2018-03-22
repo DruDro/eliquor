@@ -3,6 +3,8 @@ import { RouterModule, Routes }  from '@angular/router';
 import { RecipesComponent }      from './recipes/recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { LoginComponent }        from './login/login.component';
+import { RegisterComponent }        from './register/register.component';
+import { AccountComponent }        from './account/account.component';
 import { DashboardComponent }    from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'recipes', component: RecipesComponent },
   { path: 'my-recipes', component: RecipesComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'account', component: AccountComponent },
   { path: 'detail/:id', component: RecipeDetailComponent }
 ];
 

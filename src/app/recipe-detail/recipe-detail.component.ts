@@ -25,12 +25,6 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getRecipe();
-    $(document).on("input", 'input[type="range"]', function () {
-      $(this).closest('.range-box').find('.range-value').html(`${this.value}%`);
-    });
-    $(document).on("submit", ".add-recipe-form", function (e) {
-      e.preventDefault();
-    })
   }
   drawRating(): void {
     $('.recipe-rating').each(function () {
@@ -68,34 +62,14 @@ export class RecipeDetailComponent implements OnInit {
     }
   }
   addFlavour() {
-    const flavoursBox = document.querySelector('.add-recipe-form .flavours');
-    const flavourRow = document.createElement("div");
-    flavourRow.className = "flavour-row";
-    flavourRow.innerHTML = `<button class="btn--clear btn--removeFlavour"><i class="far fa-times-circle"></i></button>
-    <label class="input-box">
-    <input class="flavourName" required /><span class="label-text">Name</span>
-  </label>
-  <label class="input-box range-box">
-    <span class="range-value">0%</span>
-    <input class="flavourProportions filled"  value="0" type="range" min="0" max="20" step="0.5" required  />
-    <span class="label-text">Proportions</span>
-  </label>`;
-    flavoursBox.appendChild(flavourRow);
+    this.recipe.flavours.push({name:"", proportion:0});
   }
-  save(form, recipeId: number, recipeName: string, recipeRating: number): void {
-    const authorId = this.auth.user[0].id;
-    const recipe = { id: recipeId, rating: recipeRating, name: recipeName, authorId, flavours: [], createdAt: Date.now() };
-    const flavours: any = document.getElementsByClassName("flavourName");
-    const flavourProportions: any = document.getElementsByClassName("flavourProportions");
-    if (recipeName && flavours[0].value) {
-      for (let i = 0; i < flavours.length; i++) {
-        recipe.flavours.push({ name: flavours[i].value, proportion: flavourProportions[i].value })
-      }
-      this.recipeService.updateRecipe(recipeId, recipe)
-        .subscribe(recipe => {
-          alert("Recipe saved")
-        });
-    }
+  deleteFlavour(flavourIndex:number){
+    this.recipe.flavours.splice(flavourIndex, 1);
+  }
+  save(): void {
+    this.recipe.createdAt = Date.now();    
+    this.recipeService.updateRecipe(this.recipe.id, this.recipe).subscribe(recipe => alert(`Recipe ${this.recipe.name} was saved`))
   }
   goBack(): void {
     this.location.back()

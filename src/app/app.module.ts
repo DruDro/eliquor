@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { CreatedAtPipe } from './created-at.pipe';
+import { RegisterComponent } from './register/register.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CreatedAtPipe } from './created-at.pipe';
     DashboardComponent,
     LoginComponent,
     SearchRecipesComponent,
-    CreatedAtPipe
+    CreatedAtPipe,
+    RegisterComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

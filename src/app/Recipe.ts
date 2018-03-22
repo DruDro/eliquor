@@ -4,6 +4,7 @@ export class Recipe {
     authorId: number;
     flavours: Flavour[];
     createdAt: number;
+    rating: number;
 }
 
 export class Flavour {

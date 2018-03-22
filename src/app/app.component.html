@@ -4,27 +4,27 @@
         <a class="logo" routerLink="/"><i class="fas fa-eye-dropper"></i>&nbsp;{{title}}</a>
         <ul>
             <li class="nav-item" >
-                <a class="btn" routerLink="/dashboard"><i class="fas fa-home"></i>Home</a>
+                <a class="btn" routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-home"></i>Home</a>
             </li>
             <li class="nav-item" >
-                <a class="btn" routerLink="/recipes"><i class="fas fa-book"></i>Recipes</a>
+                <a class="btn" routerLink="/recipes" routerLinkActive="active"><i class="fas fa-book"></i>Recipes</a>
             </li>
             <li class="nav-item" >
-                <a class="btn" *ngIf="auth.isAuthenticated" routerLink="/my-recipes"><i class="fas fa-archive"></i>My Recipes</a>
+                <a class="btn" *ngIf="auth.isAuthenticated" routerLink="/my-recipes" routerLinkActive="active"><i class="fas fa-archive"></i>My Recipes</a>
             </li>
         </ul>
             <button
               class="btn btn-margin"
               *ngIf="!auth.isAuthenticated"
-              routerLink="/login">
+              routerLink="/login" routerLinkActive="active">
               Log In<i class="fas fa-sign-in-alt icon-right"></i>
             </button>
       
             <button
               class="btn btn-margin"
               *ngIf="auth.isAuthenticated"
-              (click)="auth.logout()">
-              Log Out<i class="fas fa-sign-out-alt icon-right"></i>
+              routerLink="/account" routerLinkActive="active">
+              {{auth.user[0].displayName}}<i class="fas fa-user icon-right"></i>
             </button>
     </nav>
 </header>

@@ -1,0 +1,22 @@
+<h1 class="page-title center-text">{{auth.user[0].displayName}}'s account</h1>
+<form ngNativeValidate (submit)="save()" class="account-form">
+  <label class="input-box">
+    <input type="text" [(ngModel)]="user.login" name="login" class="filled" required readonly />
+    <span class="label-text">Login</span>
+  </label>
+  <label class="input-box">
+    <input type="text" class="filled" [(ngModel)]="user.password" name="password" required type="password" />
+    <span class="label-text">New password</span>
+  </label>
+  <label class="input-box">
+    <input type="text" [(ngModel)]="user.displayName" name="displayName" class="filled" required />
+    <span class="label-text">Display name</span>
+  </label>
+  <div class="form-actions">
+    <button type="submit"><i class="fas fa-save"></i> Save changes</button>
+    <button class="btn btn-margin" (click)="auth.logout()">
+      Log Out
+      <i class="fas fa-sign-out-alt icon-right"></i>
+    </button>
+  </div>
+</form>

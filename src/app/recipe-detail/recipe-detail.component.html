@@ -15,37 +15,34 @@
     <div class="recipe-rating rate" attr.data-rating="{{recipe.rating}}">rate</div>
   </ng-template>
   <span class="createdAt">{{recipe.createdAt | createdAt}}</span>
-  <form ngNativeValidate class="add-recipe-form" *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || ( auth.isAuthenticated && auth.user[0].id == 1); else notAuthor"
-    #updateRecipe>
+  <form ngNativeValidate *ngIf="(auth.isAuthenticated && recipe.authorId == auth.user[0].id) || ( auth.isAuthenticated && auth.user[0].id == 1); else notAuthor" class="add-recipe-form" (submit)="save();" name="addRecipe">
     <label class="input-box">
-      <input type="text" #recipeName value="{{recipe.name}}" class="filled" required />
+      <input type="text" class="filled" [(ngModel)]="recipe.name" name="name" required />
       <span class="label-text">Recipe name</span>
     </label>
-    <h3>
-      <i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;Flavours:
+    <h3><i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;Flavours:
       <button (click)="addFlavour()" class="add-flavour btn--transparent">
         <i class="fas fa-plus-circle"></i>
       </button>
     </h3>
     <fieldset class="flavours">
-      <div *ngFor="let flavour of recipe.flavours" class="flavour-row">
-        <button class="btn--clear btn--removeFlavour">
+      <div class="flavour-row" *ngFor="let flavour of recipe.flavours; let in=index">
+        <button class="btn--clear btn--removeFlavour" (click)="deleteFlavour(in)">
           <i class="far fa-times-circle"></i>
         </button>
         <label class="input-box">
-          <input class="flavourName filled" required value="{{flavour.name}}" name="{{flavour.name}}" />
+          <input class="flavourName filled" required [(ngModel)]="flavour.name" name="name{{in}}" />
           <span class="label-text">Name</span>
         </label>
         <label class="input-box range-box">
           <span class="range-value">{{flavour.proportion}}%</span>
-          <input class="flavourProportions filled" value="{{flavour.proportion}}" type="range" min="0" max="20" step="0.5" required
-          />
+          <input class="flavourProportions filled"  type="range" min="0" max="20" step="0.5" [(ngModel)]="recipe.flavours[in].proportion"  name="proportion{{in}}" required />
           <span class="label-text">Proportions</span>
         </label>
       </div>
     </fieldset>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button type="submit" class=" btn--inverse" (click)="save(updateRecipe, recipe.id, recipeName.value, recipe.rating);">
+    <button type="submit" class=" btn--inverse" >
       <i class="fas fa-save"></i> Save changes
     </button>
   </form>

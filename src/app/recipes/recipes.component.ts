@@ -13,14 +13,14 @@ import * as $ from 'jquery';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
-  addRecipe: Recipe;
+  addRecipe: any;
   public loc: string;
   constructor(
     private recipeService: RecipeService,
     public auth: AuthService,
     private router: Router
   ) {
-    this.addRecipe = {id:0, name:"", flavours:[], authorId: this.auth.user[0].id, createdAt: 0};
+    this.addRecipe = this.auth.isAuthenticated && { name: "", flavours: [], authorId: this.auth.user[0].id };
   }
 
   drawRating(): void {
@@ -58,25 +58,48 @@ export class RecipesComponent implements OnInit {
     });
   }
   addFlavour() {
-    this.addRecipe.flavours.push({name:"", proportion:0});
+    this.addRecipe.flavours.push({ name: "", proportion: 0 });
   }
-  deleteFlavour(flavourIndex:number){
+  deleteFlavour(flavourIndex: number) {
     this.addRecipe.flavours.splice(flavourIndex, 1);
   }
   add(): void {
-    this.addRecipe.id = Math.max( ...this.recipes.map( recipe => recipe.id ) ) + 1;
     this.addRecipe.createdAt = Date.now();
-    
-    this.recipeService.addRecipe(this.addRecipe as Recipe)
-    .subscribe(recipe => {
-      this.recipes.push(recipe);
-      setTimeout(() => { this.drawRating() });
-    });
+
+    this.recipeService.addRecipe(this.addRecipe)
+      .subscribe(recipe => {
+        this.recipes.push(recipe);
+        setTimeout(() => {
+          this.drawRating();
+          this.addRecipe = { id: 0, name: "", flavours: [], authorId: this.auth.user[0].id, createdAt: 0 };
+        });
+      });
   }
   delete(recipe: Recipe): void {
     if (confirm(`Delete recipe ${recipe.name}?`)) {
       this.recipes = this.recipes.filter(h => h !== recipe);
       this.recipeService.deleteRecipe(recipe).subscribe();
+    }
+  }
+  sort(param) {
+    switch (param) {
+      case "createdAt":
+        this.recipes.sort((a, b) => b.createdAt - a.createdAt);
+        break;
+      case "rating":
+        this.recipes.sort((a, b) => b.rating - a.rating);
+        break;
+      case "name":
+        this.recipes.sort((a, b) => {
+          if (b.name < a.name) {
+            return 1;
+          }
+          if (b.name > a.name) {
+            return -1;
+          }
+          return 0;
+        });
+        break;
     }
   }
   checkLocation(): void {
@@ -90,9 +113,6 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
     this.loc = location.pathname;
     this.checkLocation();
-    $(document).on("input", 'input[type="range"]', function () {
-      $(this).closest('.range-box').find('.range-value').html(`${this.value}%`);
-    });
   }
 
 
