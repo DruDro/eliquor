@@ -17,6 +17,9 @@ import { SearchRecipesComponent } from './search-recipes/search-recipes.componen
 import { CreatedAtPipe } from './created-at.pipe';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { MlPipe } from './ml.pipe';
+import { RandomHexDirective } from './random-hex.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { AccountComponent } from './account/account.component';
     SearchRecipesComponent,
     CreatedAtPipe,
     RegisterComponent,
-    AccountComponent
+    AccountComponent,
+    CalculatorComponent,
+    MlPipe,
+    RandomHexDirective
   ],
   imports: [
     BrowserModule,

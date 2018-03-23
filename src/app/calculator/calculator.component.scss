@@ -1,0 +1,113 @@
+@import '../../sass/variables';
+@import '../../sass/mixin';
+
+$s-min: 20;
+$s-max: 70;
+$l-min: 30;
+$l-max: 90;
+
+
+.calculator {
+    display:flex;
+    align-items:center;
+    justify-content:stretch;
+    .bottle-container {
+        padding:0 15px;
+        flex: 0 1 30%;
+        display:flex;
+        justify-content:center;
+        position:relative;
+        @include b(tablet){
+            flex: 1 1 100%;
+            padding: 0 15px 15px;
+        }
+        .bottle {
+            flex: 0 0 250px;
+            height: 350px;
+            margin-top: 80px;
+            border-radius: 50px 50px 10px 10px;
+            border: 3px solid #fff;
+            position: relative;
+            background: linear-gradient(to right bottom, rgba(235, 241, 246, .3) 0%,rgba(171, 211, 238,.3) 50%,rgba(137, 195, 235,.3) 51%,rgba(213, 235, 251,.3) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            background-size: 100% 98%;
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: -83px;
+                width: 60%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 80px;
+                background: #fff;
+                align-self: flex-start;
+                border-radius: 3px 3px 0 0;
+            }
+            .flavours {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-flow: column nowrap;
+                position: relative;
+                border-radius: 7px;
+                overflow: hidden;
+                .flavour {
+                    position: relative;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    justify-content: center;
+                    flex: 0 0 auto;
+                    width: 100%;
+                    font-size: 12px;
+                    line-height: 12px;
+                    cursor: pointer;
+                    &-name {
+                        position:absolute;
+                        left:0;
+                        align-self: flex-start;
+                    }
+                    &-proportion {
+                        text-align:center;
+                    }
+                }
+            }
+        }
+    }
+    .calculator-form {      
+        flex: 0 1 70%;  
+        padding:0 0 0 15px;
+        @include b(tablet){
+            flex: 1 1 100%;
+            width:100%;
+            padding:15px 0 0;
+        }
+        .flavours {
+            border: 0;
+            outline: 0;
+            margin: 10px auto;
+            padding: 0;
+            max-width: 100%;
+        }
+        .flavour-row {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            margin: 0 0 25px;
+            label {
+                display: block;
+                flex: 1 1 100%;
+            }
+        }
+        .amount {            
+            margin: 0 0 25px;
+        }
+    }
+    
+    @include b(tablet){
+        flex-flow:column nowrap;
+    }
+}

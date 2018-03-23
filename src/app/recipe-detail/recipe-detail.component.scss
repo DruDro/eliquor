@@ -52,6 +52,9 @@
             }
         }
     }
+    .btn--calculator {
+        display:inline-block;
+    }
 }
 
 :host ::ng-deep .add-recipe-form {
@@ -89,6 +92,7 @@
         flex-flow: row nowrap;
         align-items: center;
         margin: 0 0 25px;
+        position:relative;
         label {
             display: block;
             flex: 1 1 50%;
@@ -110,6 +114,11 @@
             .range-box {
                 margin-top: 15px;
                 margin-left: 0;
+            }
+            .btn--removeFlavour {
+                position:absolute;
+                right:0;
+                top:15px;
             }
         }
     }

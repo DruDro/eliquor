@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
-  usersURL = 'http://localhost:3001/users';
+  usersURL = 'http://10.0.2.43:3001/users';
   public isAuthenticated = localStorage.getItem("isAuthenticated") == 'true';
   public user = this.isAuthenticated ? JSON.parse(localStorage.getItem("user")) : {};
   constructor(private router: Router, private http: HttpClient) {
@@ -44,7 +44,7 @@ export class AuthService {
   }
   update(user: User): void {
     this.http.put(`${this.usersURL}/${user.id}`, user).subscribe(userAdded => {      
-      this.router.navigate(['/my-recipes'])
+      this.login(user.login, user.password);
     });
   }
   logout(): void {

@@ -13,12 +13,12 @@ $c-btn-active:darken(#252525,50%);
 $bg-btn: #252525;
 $bg-btn-hover: rgba(#eee,.8);
 $bg-btn-active: rgba(#eee,.5);
-$c-btn-primary: #000;
-$c-btn-primary-hover: #252525;
-$c-btn-primary-active: #252525;
-$bg-btn-primary:rgba(#eee,.8);
-$bg-btn-primary-hover:#eee;
-$bg-btn-primary-active:rgba(#eee,.7);
+$c-btn-primary: #eee;
+$c-btn-primary-hover: #fff;
+$c-btn-primary-active: #fff;
+$bg-btn-primary:$c-primary;
+$bg-btn-primary-hover:lighten($c-primary, 5%);
+$bg-btn-primary-active:darken($c-primary,5%);
 $border-btn: 0;/*1px solid #eee */ 
 $border-btn-primary: 0;/*1px solid #252525 */ 
 $border-btn-inverse: 0;/*1px solid #eee */ 

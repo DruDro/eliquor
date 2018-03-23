@@ -145,16 +145,16 @@ input[type="submit"],
 
 .btn--inverse {
     @extend .btn;
-    background: $bg-btn-primary-hover;
-    color: $c-btn-hover;
+    background: $bg-btn-active;
+    color: $c-btn-active;
     border: $border-btn;
     &:hover,&.active {
-        background: $bg-btn;
-        color: $c-btn;
+        background: $bg-btn-hover;
+        color: $c-btn-hover;
     }
     &:active {
-        background: $bg-btn-active;
-        color: $c-btn-active;
+        background: $bg-btn;
+        color: $c-btn;
     }
 }
 

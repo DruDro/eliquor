@@ -11,7 +11,7 @@
       "id": 2,
       "login": "test",
       "password": "testtest",
-      "displayName": "Test user",
+      "displayName": "Testicula",
       "createdAt": 1521634972
     },
     {
@@ -146,6 +146,22 @@
           "proportion": "7"
         }
       ]
+    },
+    {
+      "name": "Tvhu",
+      "flavours": [
+        {
+          "name": "Ggf",
+          "proportion": 4
+        },
+        {
+          "name": "Fvdfgyy",
+          "proportion": 11
+        }
+      ],
+      "authorId": 2,
+      "createdAt": 1521828836174,
+      "id": 17
     }
   ]
 }

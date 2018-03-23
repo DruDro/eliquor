@@ -1,0 +1,31 @@
+<h1 class="page-title center-text">{{recipe.name}} calculator</h1>
+<div class="calculator">  
+  <div class="bottle-container">
+    <div class="bottle">
+      <div class="flavours">
+        <div class="flavour" *ngFor="let flavour of recipe.flavours" [style.height.%]="flavour.proportion" [appRandomHex]="'background'"  title="{{flavour.name}} &mdash; {{flavour.proportion | ml: amount}}">
+            <span class="flavour-name">{{flavour.name}}</span>
+            <span class="flavour-proportion">{{flavour.proportion | ml: amount}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="calculator-form">
+    <label class="input-box amount">
+      <input class="juiceAmount filled" [(ngModel)]="amount" name="proportion{{in}}" type="number" min="0" max="1000" step="10"
+        required />
+      <span class="label-text">Juice amount</span>
+    </label>
+    <fieldset class="flavours">
+      <div *ngFor="let flavour of recipe.flavours; let in=index" class="flavour-row">
+        <label class="input-box range-box">
+          <span class="range-value">{{flavour.proportion}}%</span>
+          <input class="flavourProportions filled" [(ngModel)]="recipe.flavours[in].proportion" name="proportion{{in}}" type="range"
+            min="0" max="20" step="0.5" required />
+          <span class="label-text">{{flavour.name}}</span>
+        </label>
+      </div>
+    </fieldset>
+  </form>
+
+</div>
