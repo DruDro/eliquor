@@ -97,6 +97,6 @@ export class RecipeService {
   private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
-  private recipesUrl = 'http://192.168.0.105:3001/recipes';  // URL to web api
-  private topRecipesUrl = 'http://192.168.0.105:3001/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
+  private recipesUrl = 'https://my-json-server.typicode.com/drudro/eliquor/recipes';  // URL to web api
+  private topRecipesUrl = 'https://my-json-server.typicode.com/drudro/eliquor/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
 }

@@ -11,7 +11,7 @@
       "id": 2,
       "login": "test",
       "password": "testtest",
-      "displayName": "Testique",
+      "displayName": "Testicula",
       "createdAt": 1521634972
     },
     {
@@ -34,11 +34,11 @@
       "name": "Rittersport Mint",
       "authorId": 2,
       "rating": 5,
-      "createdAt": 1521911780712,
+      "createdAt": 1521925520350,
       "flavours": [
         {
           "name": "Cream",
-          "proportion": 4
+          "proportion": 7.5
         },
         {
           "name": "Chocolate",
@@ -46,7 +46,7 @@
         },
         {
           "name": "Mint",
-          "proportion": 4
+          "proportion": 5.5
         }
       ]
     },
@@ -146,6 +146,18 @@
           "proportion": "7"
         }
       ]
+    },
+    {
+      "name": "fghfhf",
+      "flavours": [
+        {
+          "name": "terttete",
+          "proportion": 4
+        }
+      ],
+      "authorId": 2,
+      "createdAt": 1521925582836,
+      "id": 17
     }
   ]
 }
