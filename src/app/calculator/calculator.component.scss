@@ -1,12 +1,6 @@
 @import '../../sass/variables';
 @import '../../sass/mixin';
 
-$s-min: 20;
-$s-max: 70;
-$l-min: 30;
-$l-max: 90;
-
-
 .calculator {
     display:flex;
     align-items:center;

@@ -1,8 +1,13 @@
-.login-form {
-    
+@import '../../sass/variables';
+@import '../../sass/mixin';
+
+.login-form {    
     background:rgba(#000, .3);
     padding: 15px;
     margin: 15px auto;
+    @include b(mobile){
+        margin: 15px -15px;
+    }
         .input-box {
             margin: 0 0 25px;
             display:block;

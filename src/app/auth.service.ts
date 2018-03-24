@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
-  usersURL = 'http://10.0.2.43:3001/users';
+  usersURL = 'http://192.168.0.105:3001/users';
   public isAuthenticated = localStorage.getItem("isAuthenticated") == 'true';
   public user = this.isAuthenticated ? JSON.parse(localStorage.getItem("user")) : {};
   constructor(private router: Router, private http: HttpClient) {
