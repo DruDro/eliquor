@@ -9,7 +9,6 @@
       <i class="fas fa-trash"></i>
     </button>
   </h1>
-
   <div *ngIf="auth.isAuthenticated && recipe.authorId == auth.user[0].id; else rate" class="recipe-rating" attr.data-rating="{{recipe.rating}}"></div>
   <ng-template #rate>
     <div class="recipe-rating rate" attr.data-rating="{{recipe.rating}}">rate</div>

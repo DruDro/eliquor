@@ -4,14 +4,17 @@ import { Router } from '@angular/router';
 import { User } from './User';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import {environment} from '../environments/environment';
 
 const port = 3000;
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
+};
 
 @Injectable()
 export class AuthService {
-  usersURL = `/api/users`;
+  usersURL = `${environment.apiUri}users`; 
   public isAuthenticated = localStorage.getItem("isAuthenticated") == 'true';
   public user = this.isAuthenticated ? JSON.parse(localStorage.getItem("user")) : {};
   constructor(private router: Router, private http: HttpClient) {
@@ -42,13 +45,13 @@ export class AuthService {
   }
   register(user: User): void {
     const checkUser:any = () => this.http.get<User>(`${this.usersURL}?login=${user.login}`);
-    const register:any = () => this.http.post(`${this.usersURL}`, user).subscribe(userAdded => {      
+    const register:any = () => this.http.post(`${this.usersURL}`, user, httpOptions).subscribe(userAdded => {      
       this.login(user.login, user.password);
     });
     checkUser().subscribe(userExists => userExists.length ? console.log(userExists) : register() )
   }
   update(user: User): void {
-    this.http.put(`${this.usersURL}/${user.id}`, user).subscribe(userAdded => {      
+    this.http.put(`${this.usersURL}/${user.id}`, user, httpOptions).subscribe(userAdded => {      
       this.login(user.login, user.password);
     });
   }

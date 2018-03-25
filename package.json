@@ -7,11 +7,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "concurrently --kill-others \"node server.js\" \"ng serve\"",
     "build": "ng build --aot -prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "db": "json-server src/db.json --watch --port 3000",
+    "db": "node server.js",
     "postinstall": "npm run build"
   },
   "engines": {

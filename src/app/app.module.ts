@@ -20,6 +20,7 @@ import { AccountComponent } from './account/account.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { MlPipe } from './ml.pipe';
 import { RandomHexDirective } from './random-hex.directive';
+import { TimesDirective } from './times.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RandomHexDirective } from './random-hex.directive';
     AccountComponent,
     CalculatorComponent,
     MlPipe,
-    RandomHexDirective
+    RandomHexDirective,
+    TimesDirective
   ],
   imports: [
     BrowserModule,

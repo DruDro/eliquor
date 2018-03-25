@@ -7,12 +7,11 @@ import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-
-
+import {environment} from '../environments/environment';
 const port = 3000;
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
 
 @Injectable()
@@ -101,6 +100,6 @@ export class RecipeService {
   private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
-  private recipesUrl = `/api/recipes`;  // URL to web api
-  private topRecipesUrl = `/api/recipes?_sort=rating&_order=desc&_start=0&_end=4`;  // URL to web api
+  private recipesUrl = `${environment.apiUri}recipes`;  
+  private topRecipesUrl = `${environment.apiUri}recipes?_sort=rating&_order=desc&_start=0&_end=4`;
 }
