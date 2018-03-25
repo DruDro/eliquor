@@ -1,19 +1,26 @@
 {
   "name": "eliquor",
-  "author":"drudro",
+  "author": "drudro",
   "version": "0.0.1",
   "license": "MIT",
+  "main":"server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently --kill-others \"node server.js\" \"ng serve\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "db": "json-server db.json --watch --port 3001"
+    "db": "json-server src/db.json --watch --port 3000",
+    "postinstall": "ng build --aot -prod"
+  },
+  "engines": {
+    "node":"~6.10.3",
+    "npm":"3.10.5"
   },
   "private": false,
   "dependencies": {
+    "@angular/cli": "^1.7.3",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -29,13 +36,14 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
+    "json-server": "^0.12.1",
     "jwks-rsa": "^1.2.1",
     "rxjs": "^5.5.6",
     "save": "^2.3.2",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "concurrently": "^3.5.1"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.3",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",

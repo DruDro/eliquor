@@ -1,12 +1,17 @@
+// declare var require: any;
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './User';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
+const port = 3000;
+
+
 @Injectable()
 export class AuthService {
-  usersURL = 'https://my-json-server.typicode.com/drudro/eliquor/users';
+  usersURL = `${document.domain}:${port}/users`;
   public isAuthenticated = localStorage.getItem("isAuthenticated") == 'true';
   public user = this.isAuthenticated ? JSON.parse(localStorage.getItem("user")) : {};
   constructor(private router: Router, private http: HttpClient) {

@@ -26,6 +26,18 @@
       "login": "caramba",
       "password": "caramba",
       "id": 4
+    },
+    {
+      "displayName": "Testicula",
+      "login": "test3",
+      "password": "testtest",
+      "id": 5
+    },
+    {
+      "displayName": "Testicula",
+      "login": "test@test.com",
+      "password": "testtest",
+      "id": 6
     }
   ],
   "recipes": [
@@ -158,6 +170,18 @@
       "authorId": 2,
       "createdAt": 1521925582836,
       "id": 17
+    },
+    {
+      "name": "asasda",
+      "flavours": [
+        {
+          "name": "dasdasdasd",
+          "proportion": 3
+        }
+      ],
+      "authorId": 5,
+      "createdAt": 1521934006702,
+      "id": 18
     }
   ]
 }

@@ -1,3 +1,4 @@
+// declare var require: any;
 import { Injectable } from '@angular/core';
 import { Recipe } from './Recipe';
 import { Observable } from 'rxjs/Observable';
@@ -6,6 +7,9 @@ import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+
+
+const port = 3000;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -97,6 +101,6 @@ export class RecipeService {
   private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
-  private recipesUrl = 'https://my-json-server.typicode.com/drudro/eliquor/recipes';  // URL to web api
-  private topRecipesUrl = 'https://my-json-server.typicode.com/drudro/eliquor/recipes?_sort=rating&_order=desc&_start=0&_end=4';  // URL to web api
+  private recipesUrl = `http://${document.domain}:${port}/recipes`;  // URL to web api
+  private topRecipesUrl = `http://${document.domain}:${port}/recipes?_sort=rating&_order=desc&_start=0&_end=4`;  // URL to web api
 }

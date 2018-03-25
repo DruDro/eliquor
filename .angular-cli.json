@@ -23,7 +23,8 @@
         "favicon-96x96.png",
         "favicon-16x16.png",
         "manifest.json",
-        "ms-icon-144x144.png"
+        "ms-icon-144x144.png",
+        "db.json"
       ],
       "index": "index.html",
       "main": "main.ts",
