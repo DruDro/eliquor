@@ -101,6 +101,6 @@ export class RecipeService {
   private log(message: string) {
     this.messageService.add('RecipeService: ' + message);
   }
-  private recipesUrl = `http://${document.domain}:${port}/recipes`;  // URL to web api
-  private topRecipesUrl = `http://${document.domain}:${port}/recipes?_sort=rating&_order=desc&_start=0&_end=4`;  // URL to web api
+  private recipesUrl = `http://${document.domain}/api/recipes`;  // URL to web api
+  private topRecipesUrl = `http://${document.domain}/api/recipes?_sort=rating&_order=desc&_start=0&_end=4`;  // URL to web api
 }

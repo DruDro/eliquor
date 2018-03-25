@@ -11,7 +11,7 @@ const port = 3000;
 
 @Injectable()
 export class AuthService {
-  usersURL = `${document.domain}:${port}/users`;
+  usersURL = `${document.domain}/api/users`;
   public isAuthenticated = localStorage.getItem("isAuthenticated") == 'true';
   public user = this.isAuthenticated ? JSON.parse(localStorage.getItem("user")) : {};
   constructor(private router: Router, private http: HttpClient) {
