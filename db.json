@@ -133,6 +133,26 @@
           "proportion": "7"
         }
       ]
-    }    
+    },
+    {
+      "name": "banana split",
+      "flavours": [
+        {
+          "name": "banana",
+          "proportion": 3
+        },
+        {
+          "name": "milk",
+          "proportion": 3
+        },
+        {
+          "name": "biscuit",
+          "proportion": 5
+        }
+      ],
+      "authorId": 2,
+      "createdAt": 1524227171465,
+      "id": 17
+    }
   ]
 }
