@@ -13,31 +13,6 @@
       "password": "testtest",
       "displayName": "Testicula",
       "createdAt": 1521634972
-    },
-    {
-      "id": 3,
-      "login": "test2",
-      "password": "testtest",
-      "displayName": "Test user",
-      "createdAt": 1521634972
-    },
-    {
-      "displayName": "Carramba",
-      "login": "caramba",
-      "password": "caramba",
-      "id": 4
-    },
-    {
-      "displayName": "Testicula",
-      "login": "test3",
-      "password": "testtest",
-      "id": 5
-    },
-    {
-      "displayName": "Testicula",
-      "login": "test@test.com",
-      "password": "testtest",
-      "id": 6
     }
   ],
   "recipes": [
@@ -158,30 +133,6 @@
           "proportion": "7"
         }
       ]
-    },
-    {
-      "name": "fghfhf",
-      "flavours": [
-        {
-          "name": "terttete",
-          "proportion": 4
-        }
-      ],
-      "authorId": 2,
-      "createdAt": 1521925582836,
-      "id": 17
-    },
-    {
-      "name": "asasda",
-      "flavours": [
-        {
-          "name": "dasdasdasd",
-          "proportion": 3
-        }
-      ],
-      "authorId": 5,
-      "createdAt": 1521934006702,
-      "id": 18
     }
   ]
 }
